@@ -1,0 +1,47 @@
+<?xml version="1.0" standalone="yes" ?>
+<!-- room template data -->
+<Templates>
+  <!-- Octagon -->
+  <Room>
+    <Vertex px="-0.2" py="0.1"/>
+    <Vertex px="-0.1" py="0.2"/>
+    <Vertex px="0.1" py="0.2"/>
+    <Vertex px="0.2" py="0.1"/>
+    <Vertex px="0.2" py="-0.1"/>
+    <Vertex px="0.1" py="-0.2"/>
+    <Vertex px="-0.1" py="-0.2"/>
+    <Vertex px="-0.2" py="-0.1"/>
+  </Room>
+  <!-- Square and rectangles -->
+  <Room>
+    <Vertex px="0.15" py="0.15"/>
+    <Vertex px="-0.15" py="0.15"/>
+    <Vertex px="-0.15" py="-0.15"/>
+    <Vertex px="0.15" py="-0.15"/>
+  </Room>
+  <Room>
+    <Vertex px="0.15" py="0.2"/>
+    <Vertex px="0.15" py="-0.2"/>
+    <Vertex px="-0.15" py="-0.2"/>
+    <Vertex px="-0.15" py="0.2"/>
+  </Room>
+  <Room>
+    <Vertex px="0.2" py="0.15"/>
+    <Vertex px="0.2" py="-0.15"/>
+    <Vertex px="-0.2" py="-0.15"/>
+    <Vertex px="-0.2" py="0.15"/>
+  </Room>
+  <!-- Rotated squares -->
+  <Room>
+    <Vertex px="0.2" py="0"/>
+    <Vertex px="0" py="0.2"/>
+    <Vertex px="-0.2" py="0"/>
+    <Vertex px="0" py="-0.2"/>
+  </Room>
+  <Room>
+    <Vertex px="0.2" py="0"/>
+    <Vertex px="0" py="0.2"/>
+    <Vertex px="-0.2" py="0"/>
+    <Vertex px="0" py="-0.2"/>
+  </Room>
+</Templates>

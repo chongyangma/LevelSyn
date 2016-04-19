@@ -1,0 +1,30 @@
+<?xml version="1.0" standalone="yes" ?>
+<!-- graph input data -->
+<Graph>
+  <Node name="node0" px="-0.5" py="0.5" type="0" fix="1" />
+  <Node name="node1" px="0" py="0.5" type="0" fix="0" />
+  <Node name="node2" px="0.5" py="0.5" type="1" fix="0" />
+  <Node name="node3" px="-0.5" py="0" type="2" fix="0" />
+  <Node name="node4" px="0" py="0" type="0" fix="0" />
+  <Node name="node5" px="0.5" py="0" type="5" fix="0" />
+  <Node name="node6" px="-0.5" py="-0.5" type="1" fix="0" />
+  <Node name="node7" px="0" py="-0.5" type="3" fix="0" />
+  <Node name="node8" px="0.5" py="-0.5" type="0" fix="1" />
+  <Node name="node9" px="-0.5" py="-1.0" type="3" fix="0" />
+  <Node name="node10" px="0" py="-1.0" type="3" fix="0" />
+  <Edge node0="0" node1="1" />
+  <Edge node0="1" node1="2" />
+  <Edge node0="0" node1="3" />
+  <Edge node0="1" node1="4" />
+  <Edge node0="2" node1="5" />
+  <Edge node0="3" node1="4" />
+  <Edge node0="4" node1="5" />
+  <Edge node0="3" node1="6" />
+  <Edge node0="4" node1="7" />
+  <Edge node0="5" node1="8" />
+  <Edge node0="6" node1="7" />
+  <Edge node0="7" node1="8" />
+  <Edge node0="6" node1="9" />
+  <Edge node0="9" node1="10" />
+  <Edge node0="10" node1="7" />
+</Graph>

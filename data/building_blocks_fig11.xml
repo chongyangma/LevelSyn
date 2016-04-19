@@ -1,0 +1,91 @@
+<?xml version="1.0" standalone="yes" ?>
+<!-- room template data -->
+<Templates>
+  <!-- Rooms without restricted door positions -->
+  <Room>
+    <Vertex px="0.2" py="0.2"/>
+    <Vertex px="0.2" py="-0.2"/>
+    <Vertex px="-0.2" py="-0.2"/>
+    <Vertex px="-0.2" py="0.2"/>
+  </Room>
+  <Room>
+    <Vertex px="0.3" py="0.2"/>
+    <Vertex px="0.3" py="-0.2"/>
+    <Vertex px="-0.3" py="-0.2"/>
+    <Vertex px="-0.3" py="0.2"/>
+  </Room>
+  <Room>
+    <Vertex px="0.2" py="0.3"/>
+    <Vertex px="0.2" py="-0.3"/>
+    <Vertex px="-0.2" py="-0.3"/>
+    <Vertex px="-0.2" py="0.3"/>
+  </Room>
+  <!-- Rectangular rooms (corridors) with restricted door positions -->
+  <Room>
+    <Vertex px="0.0" py="0.0"/>
+    <Vertex px="0.0" py="0.1"/>
+    <Vertex px="0.5" py="0.1"/>
+    <Vertex px="0.5" py="0.0"/>
+    <Door edgeIndex="0"/>
+    <Door edgeIndex="2"/>
+    <Boundary type="2"/>
+  </Room>
+  <Room>
+    <Vertex px="0.0" py="0.0"/>
+    <Vertex px="0.0" py="0.5"/>
+    <Vertex px="0.1" py="0.5"/>
+    <Vertex px="0.1" py="0.0"/>
+    <Door edgeIndex="1"/>
+    <Door edgeIndex="3"/>
+    <Boundary type="2"/>
+  </Room>
+  <!-- L-shaped rooms (corridors) with restricted door positions -->
+  <Room>
+    <Vertex px="0.0" py="0.0"/>
+    <Vertex px="0.0" py="0.5"/>
+    <Vertex px="0.1" py="0.5"/>
+    <Vertex px="0.1" py="0.1"/>
+    <Vertex px="0.5" py="0.1"/>
+    <Vertex px="0.5" py="0.0"/>
+    <Shift px="-0.2" py="-0.2"/>
+    <Door edgeIndex="1"/>
+    <Door edgeIndex="4"/>
+    <Boundary type="2"/>
+  </Room>
+  <Room>
+    <Vertex px="0.0" py="0.0"/>
+    <Vertex px="0.0" py="-0.5"/>
+    <Vertex px="0.1" py="-0.5"/>
+    <Vertex px="0.1" py="-0.1"/>
+    <Vertex px="0.5" py="-0.1"/>
+    <Vertex px="0.5" py="0.0"/>
+    <Shift px="-0.2" py="0.2"/>
+    <Door edgeIndex="1"/>
+    <Door edgeIndex="4"/>
+    <Boundary type="2"/>
+  </Room>
+  <Room>
+    <Vertex px="0.0" py="0.0"/>
+    <Vertex px="0.0" py="0.5"/>
+    <Vertex px="-0.1" py="0.5"/>
+    <Vertex px="-0.1" py="0.1"/>
+    <Vertex px="-0.5" py="0.1"/>
+    <Vertex px="-0.5" py="0.0"/>
+    <Shift px="0.2" py="-0.2"/>
+    <Door edgeIndex="1"/>
+    <Door edgeIndex="4"/>
+    <Boundary type="2"/>
+  </Room>
+  <Room>
+    <Vertex px="0.0" py="0.0"/>
+    <Vertex px="0.0" py="-0.5"/>
+    <Vertex px="-0.1" py="-0.5"/>
+    <Vertex px="-0.1" py="-0.1"/>
+    <Vertex px="-0.5" py="-0.1"/>
+    <Vertex px="-0.5" py="0.0"/>
+    <Shift px="0.2" py="0.2"/>
+    <Door edgeIndex="1"/>
+    <Door edgeIndex="4"/>
+    <Boundary type="2"/>
+  </Room>
+</Templates>

@@ -1,0 +1,32 @@
+<?xml version="1.0" standalone="yes" ?>
+<!-- room template data -->
+<Templates>
+  <!-- Hexagon -->
+  <Room>
+    <Vertex px="0.25" py="0"/>
+    <Vertex px="0.75" py="0"/>
+    <Vertex px="1" py="0.4330127"/>
+    <Vertex px="0.75" py="0.8660254"/>
+    <Vertex px="0.25" py="0.8660254"/>
+    <Vertex px="0" py="0.4330127"/>
+  </Room>
+  <!-- Triangle -->
+  <Room>
+    <Vertex px="0.5" py="0"/>
+    <Vertex px="0" py="0.8660254"/>
+    <Vertex px="-0.5" py="0"/>
+  </Room>
+  <!-- Rhombus -->
+  <Room>
+    <Vertex px="0.25" py="0"/>
+    <Vertex px="0" py="0.4330127"/>
+    <Vertex px="-0.25" py="0"/>
+    <Vertex px="0" py="-0.4330127"/>
+  </Room>
+  <Room>
+    <Vertex px="0.25" py="0"/>
+    <Vertex px="0" py="0.4330127"/>
+    <Vertex px="-0.5" py="0.4330127"/>
+    <Vertex px="-0.25" py="0"/>
+  </Room>
+</Templates>

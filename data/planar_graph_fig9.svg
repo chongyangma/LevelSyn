@@ -1,0 +1,48 @@
+<?xml version="1.0" standalone="no" ?>
+<!-- graph visualization -->
+<svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+    <path d="M 150 149 L 78 78 " fill="none" stroke="black" stroke-width="5" />
+    <path d="M 150 149 L 221 78 " fill="none" stroke="black" stroke-width="5" />
+    <path d="M 78 78 L 7 7 " fill="none" stroke="black" stroke-width="5" />
+    <path d="M 78 78 L 78 7 " fill="none" stroke="black" stroke-width="5" />
+    <path d="M 78 78 L 150 7 " fill="none" stroke="black" stroke-width="5" />
+    <path d="M 221 78 L 221 7 " fill="none" stroke="black" stroke-width="5" />
+    <path d="M 221 78 L 292 7 " fill="none" stroke="black" stroke-width="5" />
+    <path d="M 150 149 L 78 221 " fill="none" stroke="black" stroke-width="5" />
+    <path d="M 150 149 L 221 221 " fill="none" stroke="black" stroke-width="5" />
+    <path d="M 78 221 L 7 292 " fill="none" stroke="black" stroke-width="5" />
+    <path d="M 78 221 L 78 292 " fill="none" stroke="black" stroke-width="5" />
+    <path d="M 78 221 L 150 292 " fill="none" stroke="black" stroke-width="5" />
+    <path d="M 221 221 L 221 292 " fill="none" stroke="black" stroke-width="5" />
+    <path d="M 221 221 L 292 292 " fill="none" stroke="black" stroke-width="5" />
+    <circle cx="150" cy="149" r="7" fill="red" stroke="none" />
+    <circle cx="78" cy="78" r="7" fill="red" stroke="none" />
+    <circle cx="221" cy="78" r="7" fill="red" stroke="none" />
+    <circle cx="7" cy="7" r="7" fill="red" stroke="none" />
+    <circle cx="78" cy="7" r="7" fill="red" stroke="none" />
+    <circle cx="150" cy="7" r="7" fill="red" stroke="none" />
+    <circle cx="221" cy="7" r="7" fill="red" stroke="none" />
+    <circle cx="292" cy="7" r="7" fill="red" stroke="none" />
+    <circle cx="78" cy="221" r="7" fill="red" stroke="none" />
+    <circle cx="221" cy="221" r="7" fill="red" stroke="none" />
+    <circle cx="7" cy="292" r="7" fill="red" stroke="none" />
+    <circle cx="78" cy="292" r="7" fill="red" stroke="none" />
+    <circle cx="150" cy="292" r="7" fill="red" stroke="none" />
+    <circle cx="221" cy="292" r="7" fill="red" stroke="none" />
+    <circle cx="292" cy="292" r="7" fill="red" stroke="none" />
+    <text x="132" y="154" font-family="Verdana" font-size="13" fill="blue">0</text>
+    <text x="65" y="93" font-family="Verdana" font-size="13" fill="blue">1</text>
+    <text x="228" y="93" font-family="Verdana" font-size="13" fill="blue">2</text>
+    <text x="18" y="12" font-family="Verdana" font-size="13" fill="blue">3</text>
+    <text x="61" y="12" font-family="Verdana" font-size="13" fill="blue">4</text>
+    <text x="161" y="12" font-family="Verdana" font-size="13" fill="blue">5</text>
+    <text x="232" y="12" font-family="Verdana" font-size="13" fill="blue">6</text>
+    <text x="275" y="12" font-family="Verdana" font-size="13" fill="blue">7</text>
+    <text x="65" y="216" font-family="Verdana" font-size="13" fill="blue">8</text>
+    <text x="228" y="216" font-family="Verdana" font-size="13" fill="blue">9</text>
+    <text x="-1" y="283" font-family="Verdana" font-size="13" fill="blue">10</text>
+    <text x="56" y="297" font-family="Verdana" font-size="13" fill="blue">11</text>
+    <text x="155" y="292" font-family="Verdana" font-size="13" fill="blue">12</text>
+    <text x="227" y="297" font-family="Verdana" font-size="13" fill="blue">13</text>
+    <text x="270" y="297" font-family="Verdana" font-size="13" fill="blue">14</text>
+</svg>

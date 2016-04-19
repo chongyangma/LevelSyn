@@ -1,0 +1,33 @@
+<?xml version="1.0" standalone="no" ?>
+<!-- graph visualization -->
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+    <path d="M 118 27 L 154 99 " fill="none" stroke="black" stroke-width="5" />
+    <path d="M 154 99 L 118 172 " fill="none" stroke="black" stroke-width="5" />
+    <path d="M 118 172 L 81 99 " fill="none" stroke="black" stroke-width="5" />
+    <path d="M 81 99 L 118 27 " fill="none" stroke="black" stroke-width="5" />
+    <path d="M 81 99 L 45 99 " fill="none" stroke="black" stroke-width="5" />
+    <path d="M 45 99 L 9 27 " fill="none" stroke="black" stroke-width="5" />
+    <path d="M 9 27 L 9 172 " fill="none" stroke="black" stroke-width="5" />
+    <path d="M 9 172 L 45 99 " fill="none" stroke="black" stroke-width="5" />
+    <path d="M 154 99 L 190 27 " fill="none" stroke="black" stroke-width="5" />
+    <path d="M 190 27 L 190 172 " fill="none" stroke="black" stroke-width="5" />
+    <path d="M 190 172 L 154 99 " fill="none" stroke="black" stroke-width="5" />
+    <circle cx="118" cy="27" r="7" fill="red" stroke="none" />
+    <circle cx="154" cy="99" r="7" fill="red" stroke="none" />
+    <circle cx="118" cy="172" r="7" fill="red" stroke="none" />
+    <circle cx="81" cy="99" r="7" fill="red" stroke="none" />
+    <circle cx="190" cy="27" r="7" fill="red" stroke="none" />
+    <circle cx="190" cy="172" r="7" fill="red" stroke="none" />
+    <circle cx="45" cy="99" r="7" fill="red" stroke="none" />
+    <circle cx="9" cy="27" r="7" fill="red" stroke="none" />
+    <circle cx="9" cy="172" r="7" fill="red" stroke="none" />
+    <text x="105" y="22" font-family="Verdana" font-size="13" fill="blue">0</text>
+    <text x="137" y="104" font-family="Verdana" font-size="13" fill="blue">1</text>
+    <text x="122" y="189" font-family="Verdana" font-size="13" fill="blue">2</text>
+    <text x="92" y="104" font-family="Verdana" font-size="13" fill="blue">3</text>
+    <text x="176" y="24" font-family="Verdana" font-size="13" fill="blue">4</text>
+    <text x="187" y="191" font-family="Verdana" font-size="13" fill="blue">5</text>
+    <text x="28" y="104" font-family="Verdana" font-size="13" fill="blue">6</text>
+    <text x="6" y="18" font-family="Verdana" font-size="13" fill="blue">7</text>
+    <text x="15" y="187" font-family="Verdana" font-size="13" fill="blue">8</text>
+</svg>

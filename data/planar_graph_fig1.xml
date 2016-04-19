@@ -1,0 +1,82 @@
+<?xml version="1.0" standalone="yes" ?>
+<!-- graph input data -->
+<Graph>
+    <Dummy />
+
+    <Node name="20" px="1" py="0"/>
+	
+	<Node name="01" px="0" py="1"/>
+	<Node name="11" px="1" py="1"/>
+	<Node name="31" px="3" py="1"/>
+	<Node name="51" px="5" py="1"/>
+
+	<Node name="12" px="1" py="2"/>
+	<Node name="32" px="3" py="2"/>
+	<Node name="42" px="4" py="2"/>
+	<Node name="62" px="6" py="2"/>
+	
+	<Node name="03" px="0" py="3"/>
+	<Node name="13" px="1" py="3"/>
+	<Node name="33" px="3" py="3"/>
+	<Node name="43" px="4" py="3"/>
+	<Node name="63" px="6" py="3"/>
+	<Node name="73" px="7" py="3"/>
+	<Node name="93" px="9" py="3"/>
+	
+	<Node name="04" px="0" py="4"/>
+	<Node name="14" px="1" py="4"/>
+	<Node name="34" px="3" py="4"/>
+	<Node name="44" px="4" py="4"/>
+	<Node name="54" px="5" py="4"/>
+
+	<Node name="05" px="5" py="5"/>
+	<Node name="15" px="5" py="5"/>
+	<Node name="35" px="5" py="5"/>
+	<Node name="45" px="5" py="5"/>
+	<Node name="75" px="5" py="5"/>
+	<Node name="95" px="5" py="5"/>
+
+	<Node name="06" px="0" py="6"/>
+	<Node name="16" px="1" py="6"/>
+	<Node name="26" px="2" py="6"/>
+	<Node name="46" px="4" py="6"/>
+
+	<Node name="87" px="8" py="7"/>
+	<Node name="97" px="9" py="7"/>
+	<Node name="A7" px="10" py="7"/>
+
+	<Node name="89" px="8" py="9"/>
+	<Node name="99" px="9" py="9"/>
+	<Node name="A9" px="10" py="9"/>
+	
+	<Node name="8B" px="8" py="11"/>
+	<Node name="9B" px="9" py="11"/>
+	<Node name="AB" px="10" py="11"/>
+	
+	<Node name="9D" px="9" py="13"/>	
+	
+	<Edge name0="01" name1="11"/>
+	<Edge name0="11" name1="12"/>
+	<Edge name0="12" name1="13"/>
+	<Edge name0="13" name1="03"/>
+	<Edge name0="03" name1="01"/>
+
+	<Edge name0="12" name1="32"/>
+	<Edge name0="11" name1="20"/>
+	<Edge name0="20" name1="31"/>
+	
+	<Edge name0="31" name1="32"/>
+	<Edge name0="32" name1="33"/>	
+	<Edge name0="33" name1="34"/>	
+	<Edge name0="34" name1="44"/>
+	<Edge name0="43" name1="44"/>
+
+	<Edge name0="33" name1="43"/>		
+	<Edge name0="42" name1="43"/>
+	<Edge name0="51" name1="42"/>
+	<Edge name0="51" name1="62"/>
+	<Edge name0="62" name1="63"/>
+	<Edge name0="54" name1="63"/>
+	<Edge name0="43" name1="54"/>
+
+</Graph>

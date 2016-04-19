@@ -1,0 +1,54 @@
+<?xml version="1.0" standalone="yes" ?>
+<!-- graph input data -->
+<Graph>
+    <Dummy />
+
+    <Node name="0" px="0" py="0"/>
+    <Node name="1" px="0" py="1"/>
+    <Node name="2" px="1" py="1"/>
+    <Node name="3" px="2" py="1"/>
+    <Node name="4" px="2" py="2"/>
+    <Node name="5" px="1" py="2"/>
+    <Node name="6" px="3" py="3"/>
+    <Node name="7" px="-1" py="1"/>
+    <Node name="8" px="-1" py="2"/>
+    <Node name="9" px="-1" py="3"/>
+    <Node name="10" px="0" py="2"/>
+
+    <Node name="11" px="0.5" py="3"/>
+    <Node name="12" px="0" py="4"/>
+    <Node name="13" px="-0.5" py="3"/>
+
+    <Node name="14" px="0" py="5"/>
+    <Node name="15" px="0" py="6"/>
+    <Node name="16" px="-1" py="6"/>
+
+
+	<Edge node0="0" node1="1"/>
+	<Edge node0="1" node1="2"/>
+	<Edge node0="2" node1="3"/>
+	<Edge node0="3" node1="4"/>
+	<Edge node0="4" node1="5"/>
+	<Edge node0="5" node1="2"/>
+	<Edge node0="4" node1="6"/>
+	<Edge node0="1" node1="7"/>
+	<Edge node0="7" node1="8"/>
+	<Edge node0="8" node1="9"/>
+
+	<Edge node0="1" node1="10"/>
+	<Edge node0="10" node1="11"/>
+	<Edge node0="11" node1="12"/>
+	<Edge node0="12" node1="13"/>
+	<Edge node0="13" node1="10"/>
+
+	<Edge node0="11" node1="6"/>
+
+	<Edge node0="12" node1="14"/>
+	<Edge node0="14" node1="15"/>
+	<Edge node0="15" node1="16"/>
+	<Edge node0="16" node1="9"/>
+
+
+
+
+</Graph>

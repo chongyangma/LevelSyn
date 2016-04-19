@@ -1,0 +1,29 @@
+<?xml version="1.0" standalone="no" ?>
+<!-- layout visualization -->
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+    <path d="M 59 56 L 32 8 L 4 56 L 32 103 z" fill="#E0E0E0" stroke="none" />
+    <path d="M 109 103 L 164 103 L 192 56 L 164 8 L 109 8 L 81 56 z" fill="#E0E0E0" stroke="none" />
+    <path d="M 123 184 L 67 88 L 12 184 z" fill="#E0E0E0" stroke="none" />
+    <path d="M 194 182 L 167 134 L 112 134 L 139 182 z" fill="#E0E0E0" stroke="none" />
+    <path d="M 59 56 L 32 8 M 32 8 L 4 56 M 4 56 L 32 103 M 32 103 L 59 56 " fill="none" stroke="black" stroke-width="4" />
+    <path d="M 109 103 L 164 103 M 164 103 L 192 56 M 192 56 L 164 8 M 164 8 L 109 8 M 109 8 L 81 56 M 81 56 L 109 103 " fill="none" stroke="black" stroke-width="4" />
+    <path d="M 123 184 L 67 88 M 67 88 L 12 184 M 12 184 L 123 184 " fill="none" stroke="black" stroke-width="4" />
+    <path d="M 194 182 L 167 134 M 167 134 L 112 134 M 112 134 L 139 182 M 139 182 L 194 182 " fill="none" stroke="black" stroke-width="4" />
+    <circle cx="59" cy="56" r="2" fill="black" stroke="none" />
+    <circle cx="32" cy="8" r="2" fill="black" stroke="none" />
+    <circle cx="4" cy="56" r="2" fill="black" stroke="none" />
+    <circle cx="32" cy="103" r="2" fill="black" stroke="none" />
+    <circle cx="109" cy="103" r="2" fill="black" stroke="none" />
+    <circle cx="164" cy="103" r="2" fill="black" stroke="none" />
+    <circle cx="192" cy="56" r="2" fill="black" stroke="none" />
+    <circle cx="164" cy="8" r="2" fill="black" stroke="none" />
+    <circle cx="109" cy="8" r="2" fill="black" stroke="none" />
+    <circle cx="81" cy="56" r="2" fill="black" stroke="none" />
+    <circle cx="123" cy="184" r="2" fill="black" stroke="none" />
+    <circle cx="67" cy="88" r="2" fill="black" stroke="none" />
+    <circle cx="12" cy="184" r="2" fill="black" stroke="none" />
+    <circle cx="194" cy="182" r="2" fill="black" stroke="none" />
+    <circle cx="167" cy="134" r="2" fill="black" stroke="none" />
+    <circle cx="112" cy="134" r="2" fill="black" stroke="none" />
+    <circle cx="139" cy="182" r="2" fill="black" stroke="none" />
+</svg>

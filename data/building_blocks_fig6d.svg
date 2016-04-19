@@ -1,0 +1,20 @@
+<?xml version="1.0" standalone="no" ?>
+<!-- layout visualization -->
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+    <path d="M 4 78 L 25 57 L 68 57 L 89 78 L 89 121 L 68 142 L 25 142 L 4 121 z" fill="#E0E0E0" stroke="none" />
+    <path d="M 195 99 L 152 57 L 110 99 L 152 142 z" fill="#E0E0E0" stroke="none" />
+    <path d="M 4 78 L 25 57 M 25 57 L 68 57 M 68 57 L 89 78 M 89 78 L 89 121 M 89 121 L 68 142 M 68 142 L 25 142 M 25 142 L 4 121 M 4 121 L 4 78 " fill="none" stroke="black" stroke-width="4" />
+    <path d="M 195 99 L 152 57 M 152 57 L 110 99 M 110 99 L 152 142 M 152 142 L 195 99 " fill="none" stroke="black" stroke-width="4" />
+    <circle cx="4" cy="78" r="2" fill="black" stroke="none" />
+    <circle cx="25" cy="57" r="2" fill="black" stroke="none" />
+    <circle cx="68" cy="57" r="2" fill="black" stroke="none" />
+    <circle cx="89" cy="78" r="2" fill="black" stroke="none" />
+    <circle cx="89" cy="121" r="2" fill="black" stroke="none" />
+    <circle cx="68" cy="142" r="2" fill="black" stroke="none" />
+    <circle cx="25" cy="142" r="2" fill="black" stroke="none" />
+    <circle cx="4" cy="121" r="2" fill="black" stroke="none" />
+    <circle cx="195" cy="99" r="2" fill="black" stroke="none" />
+    <circle cx="152" cy="57" r="2" fill="black" stroke="none" />
+    <circle cx="110" cy="99" r="2" fill="black" stroke="none" />
+    <circle cx="152" cy="142" r="2" fill="black" stroke="none" />
+</svg>

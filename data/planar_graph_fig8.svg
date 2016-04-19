@@ -1,0 +1,128 @@
+<?xml version="1.0" standalone="no" ?>
+<!-- graph visualization -->
+<svg viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+    <path d="M 80 541 L 124 541 " fill="none" stroke="black" stroke-width="5" />
+    <path d="M 124 541 L 124 497 " fill="none" stroke="black" stroke-width="5" />
+    <path d="M 124 497 L 124 453 " fill="none" stroke="black" stroke-width="5" />
+    <path d="M 124 453 L 80 453 " fill="none" stroke="black" stroke-width="5" />
+    <path d="M 80 453 L 80 541 " fill="none" stroke="black" stroke-width="5" />
+    <path d="M 124 497 L 212 497 " fill="none" stroke="black" stroke-width="5" />
+    <path d="M 124 541 L 168 585 " fill="none" stroke="black" stroke-width="5" />
+    <path d="M 168 585 L 212 541 " fill="none" stroke="black" stroke-width="5" />
+    <path d="M 212 541 L 212 497 " fill="none" stroke="black" stroke-width="5" />
+    <path d="M 212 497 L 212 453 " fill="none" stroke="black" stroke-width="5" />
+    <path d="M 212 453 L 212 409 " fill="none" stroke="black" stroke-width="5" />
+    <path d="M 212 409 L 256 409 " fill="none" stroke="black" stroke-width="5" />
+    <path d="M 256 453 L 256 409 " fill="none" stroke="black" stroke-width="5" />
+    <path d="M 212 453 L 256 453 " fill="none" stroke="black" stroke-width="5" />
+    <path d="M 256 497 L 256 453 " fill="none" stroke="black" stroke-width="5" />
+    <path d="M 300 541 L 256 497 " fill="none" stroke="black" stroke-width="5" />
+    <path d="M 300 541 L 343 497 " fill="none" stroke="black" stroke-width="5" />
+    <path d="M 343 497 L 343 453 " fill="none" stroke="black" stroke-width="5" />
+    <path d="M 300 409 L 343 453 " fill="none" stroke="black" stroke-width="5" />
+    <path d="M 256 453 L 300 409 " fill="none" stroke="black" stroke-width="5" />
+    <path d="M 212 409 L 212 365 " fill="none" stroke="black" stroke-width="5" />
+    <path d="M 212 365 L 124 365 " fill="none" stroke="black" stroke-width="5" />
+    <path d="M 124 365 L 168 321 " fill="none" stroke="black" stroke-width="5" />
+    <path d="M 124 365 L 124 321 " fill="none" stroke="black" stroke-width="5" />
+    <path d="M 124 365 L 80 321 " fill="none" stroke="black" stroke-width="5" />
+    <path d="M 124 365 L 300 365 " fill="none" stroke="black" stroke-width="5" />
+    <path d="M 124 365 L 80 409 " fill="none" stroke="black" stroke-width="5" />
+    <path d="M 124 365 L 124 409 " fill="none" stroke="black" stroke-width="5" />
+    <path d="M 343 453 L 387 453 " fill="none" stroke="black" stroke-width="5" />
+    <path d="M 387 453 L 475 453 " fill="none" stroke="black" stroke-width="5" />
+    <path d="M 475 453 L 475 278 " fill="none" stroke="black" stroke-width="5" />
+    <path d="M 475 278 L 475 190 " fill="none" stroke="black" stroke-width="5" />
+    <path d="M 475 190 L 475 102 " fill="none" stroke="black" stroke-width="5" />
+    <path d="M 475 102 L 475 14 " fill="none" stroke="black" stroke-width="5" />
+    <path d="M 475 102 L 431 102 " fill="none" stroke="black" stroke-width="5" />
+    <path d="M 475 102 L 519 102 " fill="none" stroke="black" stroke-width="5" />
+    <path d="M 475 190 L 431 190 " fill="none" stroke="black" stroke-width="5" />
+    <path d="M 475 190 L 519 190 " fill="none" stroke="black" stroke-width="5" />
+    <path d="M 475 278 L 431 278 " fill="none" stroke="black" stroke-width="5" />
+    <path d="M 475 278 L 519 278 " fill="none" stroke="black" stroke-width="5" />
+    <path d="M 256 365 L 256 321 " fill="none" stroke="black" stroke-width="5" />
+    <path d="M 475 365 L 387 365 " fill="none" stroke="black" stroke-width="5" />
+    <circle cx="168" cy="585" r="7" fill="red" stroke="none" />
+    <circle cx="80" cy="541" r="7" fill="red" stroke="none" />
+    <circle cx="124" cy="541" r="7" fill="red" stroke="none" />
+    <circle cx="212" cy="541" r="7" fill="red" stroke="none" />
+    <circle cx="300" cy="541" r="7" fill="red" stroke="none" />
+    <circle cx="124" cy="497" r="7" fill="red" stroke="none" />
+    <circle cx="212" cy="497" r="7" fill="red" stroke="none" />
+    <circle cx="256" cy="497" r="7" fill="red" stroke="none" />
+    <circle cx="343" cy="497" r="7" fill="red" stroke="none" />
+    <circle cx="80" cy="453" r="7" fill="red" stroke="none" />
+    <circle cx="124" cy="453" r="7" fill="red" stroke="none" />
+    <circle cx="212" cy="453" r="7" fill="red" stroke="none" />
+    <circle cx="256" cy="453" r="7" fill="red" stroke="none" />
+    <circle cx="343" cy="453" r="7" fill="red" stroke="none" />
+    <circle cx="387" cy="453" r="7" fill="red" stroke="none" />
+    <circle cx="475" cy="453" r="7" fill="red" stroke="none" />
+    <circle cx="80" cy="409" r="7" fill="red" stroke="none" />
+    <circle cx="124" cy="409" r="7" fill="red" stroke="none" />
+    <circle cx="212" cy="409" r="7" fill="red" stroke="none" />
+    <circle cx="256" cy="409" r="7" fill="red" stroke="none" />
+    <circle cx="300" cy="409" r="7" fill="red" stroke="none" />
+    <circle cx="300" cy="365" r="7" fill="red" stroke="none" />
+    <circle cx="124" cy="365" r="7" fill="red" stroke="none" />
+    <circle cx="212" cy="365" r="7" fill="red" stroke="none" />
+    <circle cx="256" cy="365" r="7" fill="red" stroke="none" />
+    <circle cx="387" cy="365" r="7" fill="red" stroke="none" />
+    <circle cx="475" cy="365" r="7" fill="red" stroke="none" />
+    <circle cx="80" cy="321" r="7" fill="red" stroke="none" />
+    <circle cx="124" cy="321" r="7" fill="red" stroke="none" />
+    <circle cx="168" cy="321" r="7" fill="red" stroke="none" />
+    <circle cx="256" cy="321" r="7" fill="red" stroke="none" />
+    <circle cx="431" cy="278" r="7" fill="red" stroke="none" />
+    <circle cx="475" cy="278" r="7" fill="red" stroke="none" />
+    <circle cx="519" cy="278" r="7" fill="red" stroke="none" />
+    <circle cx="431" cy="190" r="7" fill="red" stroke="none" />
+    <circle cx="475" cy="190" r="7" fill="red" stroke="none" />
+    <circle cx="519" cy="190" r="7" fill="red" stroke="none" />
+    <circle cx="431" cy="102" r="7" fill="red" stroke="none" />
+    <circle cx="475" cy="102" r="7" fill="red" stroke="none" />
+    <circle cx="519" cy="102" r="7" fill="red" stroke="none" />
+    <circle cx="475" cy="14" r="7" fill="red" stroke="none" />
+    <text x="147" y="590" font-family="Verdana" font-size="13" fill="blue">0</text>
+    <text x="59" y="546" font-family="Verdana" font-size="13" fill="blue">1</text>
+    <text x="137" y="540" font-family="Verdana" font-size="13" fill="blue">2</text>
+    <text x="226" y="550" font-family="Verdana" font-size="13" fill="blue">3</text>
+    <text x="297" y="564" font-family="Verdana" font-size="13" fill="blue">4</text>
+    <text x="103" y="502" font-family="Verdana" font-size="13" fill="blue">5</text>
+    <text x="226" y="502" font-family="Verdana" font-size="13" fill="blue">6</text>
+    <text x="240" y="515" font-family="Verdana" font-size="13" fill="blue">7</text>
+    <text x="358" y="506" font-family="Verdana" font-size="13" fill="blue">8</text>
+    <text x="59" y="458" font-family="Verdana" font-size="13" fill="blue">9</text>
+    <text x="116" y="441" font-family="Verdana" font-size="13" fill="blue">10</text>
+    <text x="186" y="458" font-family="Verdana" font-size="13" fill="blue">11</text>
+    <text x="264" y="465" font-family="Verdana" font-size="13" fill="blue">12</text>
+    <text x="342" y="442" font-family="Verdana" font-size="13" fill="blue">13</text>
+    <text x="379" y="441" font-family="Verdana" font-size="13" fill="blue">14</text>
+    <text x="485" y="458" font-family="Verdana" font-size="13" fill="blue">15</text>
+    <text x="54" y="414" font-family="Verdana" font-size="13" fill="blue">16</text>
+    <text x="98" y="414" font-family="Verdana" font-size="13" fill="blue">17</text>
+    <text x="186" y="414" font-family="Verdana" font-size="13" fill="blue">18</text>
+    <text x="248" y="397" font-family="Verdana" font-size="13" fill="blue">19</text>
+    <text x="282" y="400" font-family="Verdana" font-size="13" fill="blue">20</text>
+    <text x="301" y="356" font-family="Verdana" font-size="13" fill="blue">21</text>
+    <text x="98" y="370" font-family="Verdana" font-size="13" fill="blue">22</text>
+    <text x="213" y="356" font-family="Verdana" font-size="13" fill="blue">23</text>
+    <text x="262" y="380" font-family="Verdana" font-size="13" fill="blue">24</text>
+    <text x="367" y="358" font-family="Verdana" font-size="13" fill="blue">25</text>
+    <text x="485" y="370" font-family="Verdana" font-size="13" fill="blue">26</text>
+    <text x="54" y="326" font-family="Verdana" font-size="13" fill="blue">27</text>
+    <text x="98" y="326" font-family="Verdana" font-size="13" fill="blue">28</text>
+    <text x="156" y="309" font-family="Verdana" font-size="13" fill="blue">29</text>
+    <text x="233" y="317" font-family="Verdana" font-size="13" fill="blue">30</text>
+    <text x="406" y="283" font-family="Verdana" font-size="13" fill="blue">31</text>
+    <text x="455" y="270" font-family="Verdana" font-size="13" fill="blue">32</text>
+    <text x="529" y="283" font-family="Verdana" font-size="13" fill="blue">33</text>
+    <text x="406" y="195" font-family="Verdana" font-size="13" fill="blue">34</text>
+    <text x="455" y="182" font-family="Verdana" font-size="13" fill="blue">35</text>
+    <text x="511" y="177" font-family="Verdana" font-size="13" fill="blue">36</text>
+    <text x="406" y="107" font-family="Verdana" font-size="13" fill="blue">37</text>
+    <text x="455" y="94" font-family="Verdana" font-size="13" fill="blue">38</text>
+    <text x="511" y="89" font-family="Verdana" font-size="13" fill="blue">39</text>
+    <text x="450" y="19" font-family="Verdana" font-size="13" fill="blue">40</text>
+</svg>

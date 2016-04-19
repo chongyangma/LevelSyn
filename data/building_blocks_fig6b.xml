@@ -1,0 +1,32 @@
+<?xml version="1.0" standalone="yes" ?>
+<!-- room template data -->
+<Templates>
+    <Room>
+        <Vertex px="0.1" py="0" />
+        <Vertex px="0.3" py="0" />
+        <Vertex px="0.3" py="-0.2" />
+        <Vertex px="-0.3" py="-0.2" />
+        <Vertex px="-0.3" py="0" />
+        <Vertex px="-0.1" py="0" />
+        <Vertex px="-0.1" py="0.2" />
+        <Vertex px="0.1" py="0.2" />
+    </Room>
+    <Room>
+        <Vertex px="0.2" py="0.2" />
+        <Vertex px="0.2" py="-0.2" />
+        <Vertex px="0" py="-0.2" />
+        <Vertex px="0" py="0" />
+        <Vertex px="-0.2" py="0" />
+        <Vertex px="-0.2" py="0.2" />
+        <Shift px="0.075" py="0.075" />
+    </Room>
+    <Room>
+        <Vertex px="0.2" py="0.2" />
+        <Vertex px="0.2" py="-0.2" />
+        <Vertex px="-0.2" py="-0.2" />
+        <Vertex px="-0.2" py="0" />
+        <Vertex px="0" py="0" />
+        <Vertex px="0" py="0.2" />
+        <Shift px="0.075" py="-0.075" />
+    </Room>
+</Templates>

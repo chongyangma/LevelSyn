@@ -1,0 +1,58 @@
+<?xml version="1.0" standalone="no" ?>
+<!-- graph visualization -->
+<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+    <path d="M 136 390 L 136 326 " fill="none" stroke="black" stroke-width="5" />
+    <path d="M 136 326 L 200 326 " fill="none" stroke="black" stroke-width="5" />
+    <path d="M 200 326 L 263 326 " fill="none" stroke="black" stroke-width="5" />
+    <path d="M 263 326 L 263 263 " fill="none" stroke="black" stroke-width="5" />
+    <path d="M 263 263 L 200 263 " fill="none" stroke="black" stroke-width="5" />
+    <path d="M 200 263 L 200 326 " fill="none" stroke="black" stroke-width="5" />
+    <path d="M 263 263 L 326 200 " fill="none" stroke="black" stroke-width="5" />
+    <path d="M 73 326 L 73 263 " fill="none" stroke="black" stroke-width="5" />
+    <path d="M 73 263 L 73 200 " fill="none" stroke="black" stroke-width="5" />
+    <path d="M 136 326 L 136 263 " fill="none" stroke="black" stroke-width="5" />
+    <path d="M 136 263 L 168 200 " fill="none" stroke="black" stroke-width="5" />
+    <path d="M 168 200 L 136 136 " fill="none" stroke="black" stroke-width="5" />
+    <path d="M 136 136 L 104 200 " fill="none" stroke="black" stroke-width="5" />
+    <path d="M 104 200 L 136 263 " fill="none" stroke="black" stroke-width="5" />
+    <path d="M 168 200 L 326 200 " fill="none" stroke="black" stroke-width="5" />
+    <path d="M 136 136 L 136 73 " fill="none" stroke="black" stroke-width="5" />
+    <path d="M 136 73 L 136 9 " fill="none" stroke="black" stroke-width="5" />
+    <path d="M 136 9 L 73 9 " fill="none" stroke="black" stroke-width="5" />
+    <path d="M 73 9 L 73 200 " fill="none" stroke="black" stroke-width="5" />
+    <path d="M 73 326 L 136 326 " fill="none" stroke="black" stroke-width="5" />
+    <circle cx="136" cy="390" r="7" fill="red" stroke="none" />
+    <circle cx="136" cy="326" r="7" fill="red" stroke="none" />
+    <circle cx="200" cy="326" r="7" fill="red" stroke="none" />
+    <circle cx="263" cy="326" r="7" fill="red" stroke="none" />
+    <circle cx="263" cy="263" r="7" fill="red" stroke="none" />
+    <circle cx="200" cy="263" r="7" fill="red" stroke="none" />
+    <circle cx="326" cy="200" r="7" fill="red" stroke="none" />
+    <circle cx="73" cy="326" r="7" fill="red" stroke="none" />
+    <circle cx="73" cy="263" r="7" fill="red" stroke="none" />
+    <circle cx="73" cy="200" r="7" fill="red" stroke="none" />
+    <circle cx="136" cy="263" r="7" fill="red" stroke="none" />
+    <circle cx="168" cy="200" r="7" fill="red" stroke="none" />
+    <circle cx="136" cy="136" r="7" fill="red" stroke="none" />
+    <circle cx="104" cy="200" r="7" fill="red" stroke="none" />
+    <circle cx="136" cy="73" r="7" fill="red" stroke="none" />
+    <circle cx="136" cy="9" r="7" fill="red" stroke="none" />
+    <circle cx="73" cy="9" r="7" fill="red" stroke="none" />
+    <text x="117" y="395" font-family="Verdana" font-size="13" fill="blue">0</text>
+    <text x="122" y="320" font-family="Verdana" font-size="13" fill="blue">1</text>
+    <text x="197" y="347" font-family="Verdana" font-size="13" fill="blue">2</text>
+    <text x="276" y="331" font-family="Verdana" font-size="13" fill="blue">3</text>
+    <text x="254" y="253" font-family="Verdana" font-size="13" fill="blue">4</text>
+    <text x="181" y="268" font-family="Verdana" font-size="13" fill="blue">5</text>
+    <text x="323" y="189" font-family="Verdana" font-size="13" fill="blue">6</text>
+    <text x="54" y="331" font-family="Verdana" font-size="13" fill="blue">7</text>
+    <text x="54" y="268" font-family="Verdana" font-size="13" fill="blue">8</text>
+    <text x="54" y="205" font-family="Verdana" font-size="13" fill="blue">9</text>
+    <text x="144" y="271" font-family="Verdana" font-size="13" fill="blue">10</text>
+    <text x="144" y="205" font-family="Verdana" font-size="13" fill="blue">11</text>
+    <text x="112" y="138" font-family="Verdana" font-size="13" fill="blue">12</text>
+    <text x="80" y="205" font-family="Verdana" font-size="13" fill="blue">13</text>
+    <text x="112" y="78" font-family="Verdana" font-size="13" fill="blue">14</text>
+    <text x="144" y="14" font-family="Verdana" font-size="13" fill="blue">15</text>
+    <text x="49" y="14" font-family="Verdana" font-size="13" fill="blue">16</text>
+</svg>

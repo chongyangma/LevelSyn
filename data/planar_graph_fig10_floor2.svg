@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- graph visualization -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   viewBox="0 0 166.77295 214"
+   id="svg3203"
+   version="1.1"
+   inkscape:version="0.48.3.1 r9886"
+   width="100%"
+   height="100%"
+   sodipodi:docname="graph_input_floor02.svg">
+  <metadata
+     id="metadata3283">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs3281" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1019"
+     id="namedview3279"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:zoom="0.59"
+     inkscape:cx="82.282715"
+     inkscape:cy="106"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg3203" />
+  <path
+     d="m 15.282715,7 67,0"
+     id="path3205"
+     inkscape:connector-curvature="0"
+     style="fill:none;stroke:#000000;stroke-width:5" />
+  <path
+     d="M 82.282715,7 148.28271,7"
+     id="path3207"
+     inkscape:connector-curvature="0"
+     style="fill:none;stroke:#000000;stroke-width:5" />
+  <path
+     d="m 15.282715,7 0,67"
+     id="path3209"
+     inkscape:connector-curvature="0"
+     style="fill:none;stroke:#000000;stroke-width:5" />
+  <path
+     d="m 82.282715,7 0,67"
+     id="path3211"
+     inkscape:connector-curvature="0"
+     style="fill:none;stroke:#000000;stroke-width:5" />
+  <path
+     d="m 148.28271,7 0,67"
+     id="path3213"
+     inkscape:connector-curvature="0"
+     style="fill:none;stroke:#000000;stroke-width:5" />
+  <path
+     d="m 15.282715,74 67,0"
+     id="path3215"
+     inkscape:connector-curvature="0"
+     style="fill:none;stroke:#000000;stroke-width:5" />
+  <path
+     d="m 82.282715,74 65.999995,0"
+     id="path3217"
+     inkscape:connector-curvature="0"
+     style="fill:none;stroke:#000000;stroke-width:5" />
+  <path
+     d="m 15.282715,74 0,67"
+     id="path3219"
+     inkscape:connector-curvature="0"
+     style="fill:none;stroke:#000000;stroke-width:5" />
+  <path
+     d="m 82.282715,74 0,67"
+     id="path3221"
+     inkscape:connector-curvature="0"
+     style="fill:none;stroke:#000000;stroke-width:5" />
+  <path
+     d="m 148.28271,74 0,67"
+     id="path3223"
+     inkscape:connector-curvature="0"
+     style="fill:none;stroke:#000000;stroke-width:5" />
+  <path
+     d="m 15.282715,141 67,0"
+     id="path3225"
+     inkscape:connector-curvature="0"
+     style="fill:none;stroke:#000000;stroke-width:5" />
+  <path
+     d="m 82.282715,141 65.999995,0"
+     id="path3227"
+     inkscape:connector-curvature="0"
+     style="fill:none;stroke:#000000;stroke-width:5" />
+  <path
+     d="m 15.282715,141 0,66"
+     id="path3229"
+     inkscape:connector-curvature="0"
+     style="fill:none;stroke:#000000;stroke-width:5" />
+  <path
+     d="m 15.282715,207 67,0"
+     id="path3231"
+     inkscape:connector-curvature="0"
+     style="fill:none;stroke:#000000;stroke-width:5" />
+  <path
+     d="m 82.282715,207 0,-66"
+     id="path3233"
+     inkscape:connector-curvature="0"
+     style="fill:none;stroke:#000000;stroke-width:5" />
+  <circle
+     cx="133"
+     cy="99"
+     r="7"
+     id="circle3235"
+     sodipodi:cx="133"
+     sodipodi:cy="99"
+     sodipodi:rx="7"
+     sodipodi:ry="7"
+     style="fill:#808080;stroke:none"
+     transform="translate(-117.71729,-92)" />
+  <circle
+     cx="200"
+     cy="99"
+     r="7"
+     id="circle3237"
+     sodipodi:cx="200"
+     sodipodi:cy="99"
+     sodipodi:rx="7"
+     sodipodi:ry="7"
+     style="fill:#ff0000;stroke:none"
+     transform="translate(-117.71729,-92)" />
+  <circle
+     cx="266"
+     cy="99"
+     r="7"
+     id="circle3239"
+     sodipodi:cx="266"
+     sodipodi:cy="99"
+     sodipodi:rx="7"
+     sodipodi:ry="7"
+     style="fill:#ff0000;stroke:none"
+     transform="translate(-117.71729,-92)" />
+  <circle
+     cx="133"
+     cy="166"
+     r="7"
+     id="circle3241"
+     sodipodi:cx="133"
+     sodipodi:cy="166"
+     sodipodi:rx="7"
+     sodipodi:ry="7"
+     style="fill:#ff0000;stroke:none"
+     transform="translate(-117.71729,-92)" />
+  <circle
+     cx="200"
+     cy="166"
+     r="7"
+     id="circle3243"
+     sodipodi:cx="200"
+     sodipodi:cy="166"
+     sodipodi:rx="7"
+     sodipodi:ry="7"
+     style="fill:#ff0000;stroke:none"
+     transform="translate(-117.71729,-92)" />
+  <circle
+     cx="266"
+     cy="166"
+     r="7"
+     id="circle3245"
+     sodipodi:cx="266"
+     sodipodi:cy="166"
+     sodipodi:rx="7"
+     sodipodi:ry="7"
+     style="fill:#ff0000;stroke:none"
+     transform="translate(-117.71729,-92)" />
+  <circle
+     cx="133"
+     cy="233"
+     r="7"
+     id="circle3247"
+     sodipodi:cx="133"
+     sodipodi:cy="233"
+     sodipodi:rx="7"
+     sodipodi:ry="7"
+     style="fill:#ff0000;stroke:none"
+     transform="translate(-117.71729,-92)" />
+  <circle
+     cx="200"
+     cy="233"
+     r="7"
+     id="circle3249"
+     sodipodi:cx="200"
+     sodipodi:cy="233"
+     sodipodi:rx="7"
+     sodipodi:ry="7"
+     style="fill:#ff0000;stroke:none"
+     transform="translate(-117.71729,-92)" />
+  <circle
+     cx="266"
+     cy="233"
+     r="7"
+     id="circle3251"
+     sodipodi:cx="266"
+     sodipodi:cy="233"
+     sodipodi:rx="7"
+     sodipodi:ry="7"
+     style="fill:#808080;stroke:none"
+     transform="translate(-117.71729,-92)" />
+  <circle
+     cx="133"
+     cy="299"
+     r="7"
+     id="circle3253"
+     sodipodi:cx="133"
+     sodipodi:cy="299"
+     sodipodi:rx="7"
+     sodipodi:ry="7"
+     style="fill:#ff0000;stroke:none"
+     transform="translate(-117.71729,-92)" />
+  <circle
+     cx="200"
+     cy="299"
+     r="7"
+     id="circle3255"
+     sodipodi:cx="200"
+     sodipodi:cy="299"
+     sodipodi:rx="7"
+     sodipodi:ry="7"
+     style="fill:#ff0000;stroke:none"
+     transform="translate(-117.71729,-92)" />
+  <text
+     x="-0.71728516"
+     y="12"
+     font-size="13"
+     id="text3257"
+     style="font-size:13px;fill:#0000ff;font-family:Verdana">0</text>
+  <text
+     x="88.282715"
+     y="22"
+     font-size="13"
+     id="text3259"
+     style="font-size:13px;fill:#0000ff;font-family:Verdana">1</text>
+  <text
+     x="159.28271"
+     y="12"
+     font-size="13"
+     id="text3261"
+     style="font-size:13px;fill:#0000ff;font-family:Verdana">2</text>
+  <text
+     x="-0.71728516"
+     y="79"
+     font-size="13"
+     id="text3263"
+     style="font-size:13px;fill:#0000ff;font-family:Verdana">3</text>
+  <text
+     x="69.282715"
+     y="70"
+     font-size="13"
+     id="text3265"
+     style="font-size:13px;fill:#0000ff;font-family:Verdana">4</text>
+  <text
+     x="159.28271"
+     y="79"
+     font-size="13"
+     id="text3267"
+     style="font-size:13px;fill:#0000ff;font-family:Verdana">5</text>
+  <text
+     x="-0.71728516"
+     y="146"
+     font-size="13"
+     id="text3269"
+     style="font-size:13px;fill:#0000ff;font-family:Verdana">6</text>
+  <text
+     x="69.282715"
+     y="136"
+     font-size="13"
+     id="text3271"
+     style="font-size:13px;fill:#0000ff;font-family:Verdana">7</text>
+  <text
+     x="159.28271"
+     y="146"
+     font-size="13"
+     id="text3273"
+     style="font-size:13px;fill:#0000ff;font-family:Verdana">8</text>
+  <text
+     x="-0.71728516"
+     y="212"
+     font-size="13"
+     id="text3275"
+     style="font-size:13px;fill:#0000ff;font-family:Verdana">9</text>
+  <text
+     x="87.282715"
+     y="212"
+     font-size="13"
+     id="text3277"
+     style="font-size:13px;fill:#0000ff;font-family:Verdana">10</text>
+</svg>

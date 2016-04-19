@@ -1,0 +1,24 @@
+<?xml version="1.0" standalone="yes" ?>
+<!-- room template data -->
+<Templates>
+  <!-- Short square -->
+  <Room>
+    <Vertex px="0.2" py="0.2" />
+    <Vertex px="0.2" py="-0.2" />
+    <Vertex px="-0.2" py="-0.2" />
+    <Vertex px="-0.2" py="0.2" />
+  </Room>
+  <!-- Rectangles -->
+  <Room>
+    <Vertex px="0.3" py="0.2" />
+    <Vertex px="0.3" py="-0.2" />
+    <Vertex px="-0.3" py="-0.2" />
+    <Vertex px="-0.3" py="0.2" />
+  </Room>
+  <Room>
+    <Vertex py="0.3" px="0.2" />
+    <Vertex py="0.3" px="-0.2" />
+    <Vertex py="-0.3" px="-0.2" />
+    <Vertex py="-0.3" px="0.2" />
+  </Room>
+</Templates>
