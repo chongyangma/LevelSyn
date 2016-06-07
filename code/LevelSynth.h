@@ -17,6 +17,10 @@
 #include <stack>
 #include <string>
 
+#ifdef __linux__
+#include <stdarg.h>
+#endif
+
 //#define PRINT_OUT_DEBUG_INFO
 
 // Use to track current solution state
