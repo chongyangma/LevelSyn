@@ -728,7 +728,7 @@ std::vector<int> CPlanarGraph::ExtractDeepestChainNew()
 			for ( int j=0; j<int(neighbors.size()); j++ )
 			{
 				int idxTmp = neighbors[j];
-				if ( GetNode(idxTmp).GetFlagVisited() == false )
+				if ( idxTmp < GetNumOfNodes()&& GetNode(idxTmp).GetFlagVisited() == false  )
 				{
 					idx = idxTmp;
 					chainIndices.push_back(idx);
