@@ -30,7 +30,9 @@ public:
 	}
 };
 
-#else // WIN32
+#endif
+
+#ifdef WIN32
 
 #include <windows.h>
 typedef __int64 i64;
@@ -63,6 +65,30 @@ double CLevelTimer::GetElapsedTime(double old_time)
 	QueryPerformanceCounter((LARGE_INTEGER *)&m_clocks);
 	return ((double)m_clocks / (double)m_freq - old_time);
 }
+
+#endif
+
+#ifdef __linux__
+
+#include <time.h>
+
+class CLevelTimer
+{
+ public:
+  CLevelTimer() {}
+  
+  double GetTime()
+  {
+    double time_res = (double)time(NULL);
+    return time_res;
+  }
+  
+  double GetElapsedTime(double old_time)
+  {
+    double time_res = time(NULL);
+    return (time_res - old_time);
+  }
+};
 
 #endif
 
