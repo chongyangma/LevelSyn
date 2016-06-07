@@ -945,4 +945,6 @@ void CPlanarGraph::RemoveIndividualNodes()
 		edge.SetIdx0(idx0);
 		edge.SetIdx1(idx1);
 	}
+
+	SetNodeNeighbors();
 }
