@@ -16,7 +16,15 @@ This repository contains the source code and example data of the following publi
 
 ## Requirements
 
-Compiling from scratch requires the installation of [CMake](https://cmake.org/) and [Boost C++ Libraries](http://www.boost.org/).
+The code is cross-platform and has been tested under Windows (MSVC), Linux (Ubuntu) and Mac OS X. Compiling from scratch requires the installation of [CMake](https://cmake.org/) and [Boost C++ Libraries](http://www.boost.org/).
+
+## Usage
+
+Launching the compiled application from command line without any argument will print the usage information (MSVC version):
+
+```
+levels.exe graph.xml templates.xml config.txt [target_solution_number]
+```
 
 ## Contact information
 
