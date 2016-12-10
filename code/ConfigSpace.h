@@ -77,7 +77,7 @@ public:
 
 	void TranslateConfigSpace(v2f trans);
 
-	static bool CompareConfigLineLength(CConfigLine& line1, CConfigLine& line2);
+	static bool CompareConfigLineLength(const CConfigLine& line1, const CConfigLine& line2);
 
 	static void PrecomputeTable(const std::vector<CRoom>& vecRooms);
 

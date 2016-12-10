@@ -389,7 +389,7 @@ void CConfigSpace::TranslateConfigSpace(v2f trans)
 	}
 }
 
-bool CConfigSpace::CompareConfigLineLength(CConfigLine& line1, CConfigLine& line2)
+bool CConfigSpace::CompareConfigLineLength(const CConfigLine& line1, const CConfigLine& line2)
 {
 	return (line1.GetConfigLineSqLength() > line2.GetConfigLineSqLength());
 }
