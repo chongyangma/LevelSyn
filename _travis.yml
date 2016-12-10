@@ -1,0 +1,16 @@
+language: cpp
+
+sudo: required
+dist: trusty
+
+compiler:  
+    - gcc
+
+before_script:
+    - sudo apt-get install cmake
+    - sudo apt-get install libboost-all-dev
+    - mkdir build
+    - cd build
+    - cmake ..
+
+script: make 
