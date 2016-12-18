@@ -2,8 +2,8 @@ CMAKE_MINIMUM_REQUIRED(VERSION 2.6)
 PROJECT(LevelSyn)
 
 if(MSVC)
-   set( BOOST_ROOT "C:/Program Files/boost/boost_1_54_0")
-   set( BOOST_LIBRARYDIR "C:/Program Files/boost/boost_1_54_0/lib64-msvc-10.0" )
+   set( BOOST_ROOT "C:/Libraries/boost")
+#   set( BOOST_LIBRARYDIR "C:/Program Files/boost/boost_1_54_0/lib64-msvc-10.0" )
 endif()
 
 SET(Boost_USE_STATIC_LIBS TRUE)
