@@ -1,8 +1,9 @@
 LevelSyn
 ========
 
-[![Build Status](https://travis-ci.org/chongyangma/LevelSyn.svg?branch=master)](https://travis-ci.org/chongyangma/LevelSyn)
-[![Build status](https://ci.appveyor.com/api/projects/status/rppyp7wpf1un5dse?svg=true)](https://ci.appveyor.com/project/chongyangma/levelsyn)
+| **`Linux/Mac OS`** | **`Windows`** |
+|------------------|-------------|
+|[![Build Status](https://travis-ci.org/chongyangma/LevelSyn.svg?branch=master)](https://travis-ci.org/chongyangma/LevelSyn)|[![Build status](https://ci.appveyor.com/api/projects/status/rppyp7wpf1un5dse?svg=true)](https://ci.appveyor.com/project/chongyangma/levelsyn)|
 
 This repository contains the source code and example data of the following publication:
 
