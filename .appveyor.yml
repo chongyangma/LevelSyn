@@ -1,53 +1,43 @@
-# Specify version format
 version: "{build}"
 
-# Operating system (build VM template)
 os: Visual Studio 2015
 
-# build platform, i.e. Win32 (instead of x86), x64, Any CPU. This setting is optional.
 platform:
   - Win32
   #- x64
 
-# specify custom environment variables
 environment:
   MSVC_DEFAULT_OPTIONS: ON
   BOOST_ROOT: C:\Libraries\boost_1_59_0
   BOOST_LIBRARYDIR: C:\Libraries\boost_1_59_0\lib32-msvc-14.0
 
-# build configuration, i.e. Debug, Release, etc.
 configuration:
-  - Debug
+  #- Debug
   - Release
 
-# scripts that are called at very beginning, before repo cloning
 init:
   - cmd: cmake --version
   - cmd: msbuild /version
 
-# clone directory
 clone_folder: C:\projects\LevelSyn
 
-# branches to build
 branches:
   only:
     - master
 
-# scripts to run before build
 before_build:
   - cmd: cd C:\projects\LevelSyn
   - cmd: md build
   - cmd: cd build
-  # We generate project files for Visual Studio 12 because the boost binaries installed on the test server are for Visual Studio 12.
   - cmd: if "%platform%"=="Win32" set CMAKE_GENERATOR_NAME=Visual Studio 14 2015
   - cmd: if "%platform%"=="x64"   set CMAKE_GENERATOR_NAME=Visual Studio 14 2015 Win64
   - cmd: cmake -G "%CMAKE_GENERATOR_NAME%" -DCMAKE_BUILD_TYPE=%configuration% -DBOOST_ROOT="%BOOST_ROOT%" -DBOOST_LIBRARYDIR="%BOOST_LIBRARYDIR%" -DBoost_USE_STATIC_LIBS="ON" ../
 
 build:
-  project: C:\projects\LevelSyn\build\LevelSyn.sln # path to Visual Studio solution or project
-  parallel: true                           # enable MSBuild parallel builds
-#  verbosity: quiet                         # MSBuild verbosity level (quiet|minimal|normal|detailed)
+  project: C:\projects\LevelSyn\build\LevelSyn.sln
+  parallel: true
+#  verbosity: quiet
 
-test: off
-#test_script:
-#  - cmd: ctest --build-config %configuration% --parallel 4 --output-on-failure
+after_build:
+    - cd C:\projects\LevelSyn\build\Release
+    - levels.exe ..\..\data\planar_graph_fig1.xml ..\..\data\building_blocks_fig1.xml ..\..\data\config.txt 10

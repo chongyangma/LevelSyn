@@ -7,7 +7,7 @@ os:
     - linux
     - osx
 
-compiler:  
+compiler:
     - gcc
     - clang
 
@@ -18,4 +18,6 @@ before_script:
     - cd build
     - cmake ..
 
-script: make 
+script:
+    - make
+    - ./levels ../data/planar_graph_fig1.xml ../data/building_blocks_fig1.xml ../data/config.txt 10
