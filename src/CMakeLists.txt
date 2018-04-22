@@ -1,0 +1,30 @@
+CMAKE_MINIMUM_REQUIRED(VERSION 2.6)
+PROJECT(LevenSyn)
+
+IF(MSVC)
+#   set( BOOST_ROOT "C:/Program Files/boost/boost_1_54_0")
+#   set( BOOST_LIBRARYDIR "C:/Program Files/boost/boost_1_54_0/lib64-msvc-10.0" )
+ENDIF()
+
+SET(Boost_USE_STATIC_LIBS TRUE)
+FIND_PACKAGE(Boost COMPONENTS thread REQUIRED)
+LINK_DIRECTORIES    (${Boost_LIBRARY_DIRS})
+INCLUDE_DIRECTORIES (${Boost_INCLUDE_DIRS})
+
+IF(APPLE)
+   FIND_LIBRARY(coreFoundation CoreFoundation)
+ENDIF()
+
+FILE(GLOB LEVEL_SYN_SOURCES "*.cpp")
+FILE(GLOB LEVEL_SYN_HEADERS "*.h")
+
+INCLUDE_DIRECTORIES (../lib/clipper)
+INCLUDE_DIRECTORIES (../lib/tinyxml)
+
+LINK_DIRECTORIES(${PROJECT_BINARY_DIR}/../lib)
+
+ADD_EXECUTABLE(levels ${LEVEL_SYN_SOURCES} ${LEVEL_SYN_HEADERS})
+TARGET_LINK_LIBRARIES(levels tinyxml clipper ${Boost_LIBRARIES} ${Boost_THREAD_LIBRARY})
+if(APPLE)
+   TARGET_LINK_LIBRARIES(levels ${coreFoundation})
+endif()
