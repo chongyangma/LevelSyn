@@ -20,4 +20,4 @@ before_script:
 
 script:
     - make
-    - ./levels ../data/planar_graph_fig1.xml ../data/building_blocks_fig1.xml ../data/config.txt 10
+    - ./src/levels ../data/planar_graph_fig1.xml ../data/building_blocks_fig1.xml ../data/config.txt 10
