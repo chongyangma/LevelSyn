@@ -2,7 +2,7 @@ language: cpp
 dist: trusty
 
 os:
-    # - linux
+    - linux
     - osx
 
 compiler:
@@ -18,4 +18,5 @@ before_script:
 
 script:
     - make
-    - ./src/levels ../data/planar_graph_fig1.xml ../data/building_blocks_fig1.xml ../data/config.txt 10
+    - cd ../bin
+    - ./levels ../data/planar_graph_fig1.xml ../data/building_blocks_fig1.xml ../data/config.txt 10
