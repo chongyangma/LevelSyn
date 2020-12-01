@@ -26,18 +26,19 @@ branches:
     - master
 
 before_build:
-  - cmd: cd C:\projects\LevelSyn
-  - cmd: md build
-  - cmd: cd build
-  - cmd: if "%platform%"=="Win32" set CMAKE_GENERATOR_NAME=Visual Studio 14 2015
-  - cmd: if "%platform%"=="x64"   set CMAKE_GENERATOR_NAME=Visual Studio 14 2015 Win64
-  - cmd: cmake -G "%CMAKE_GENERATOR_NAME%" -DCMAKE_BUILD_TYPE=%configuration% -DBOOST_ROOT="%BOOST_ROOT%" -DBOOST_LIBRARYDIR="%BOOST_LIBRARYDIR%" -DBoost_USE_STATIC_LIBS="ON" ../
+  - cd C:\projects\LevelSyn
+  - md build
+  - cd build
+  - git submodule update --init --recursive
+  - if "%platform%"=="Win32" set CMAKE_GENERATOR_NAME=Visual Studio 14 2015
+  - if "%platform%"=="x64"   set CMAKE_GENERATOR_NAME=Visual Studio 14 2015 Win64
+  - cmake -G "%CMAKE_GENERATOR_NAME%" -DCMAKE_BUILD_TYPE=%configuration% -DBOOST_ROOT="%BOOST_ROOT%" -DBOOST_LIBRARYDIR="%BOOST_LIBRARYDIR%" -DBoost_USE_STATIC_LIBS="ON" ../
 
 build:
   project: C:\projects\LevelSyn\build\LevelSyn.sln
   parallel: true
-#  verbosity: quiet
+  verbosity: normal
 
 after_build:
-    - cd C:\projects\LevelSyn\build\src\Release
-    - levels.exe ..\..\..\data\planar_graph_fig1.xml ..\..\..\data\building_blocks_fig1.xml ..\..\..\data\config.txt 10
+  - cd C:\projects\LevelSyn\build\src\Release
+  - levels.exe ..\..\..\data\planar_graph_fig1.xml ..\..\..\data\building_blocks_fig1.xml ..\..\..\data\config.txt 10

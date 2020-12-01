@@ -1,10 +1,8 @@
 language: cpp
-
-sudo: required
 dist: trusty
 
 os:
-    - linux
+    # - linux
     - osx
 
 compiler:
