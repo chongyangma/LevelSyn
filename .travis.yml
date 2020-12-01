@@ -1,9 +1,8 @@
 language: cpp
-# sudo: required
-# dist: trusty
+dist: trusty
 
 os:
-    - linux
+    # - linux
     - osx
 
 compiler:
