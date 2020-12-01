@@ -21,7 +21,7 @@ This repository contains the source code and example data of the following publi
 ## Requirements
 
 The code is cross-platform and has been tested under Windows (MSVC), Linux and Mac OS X. Compiling from scratch requires the installation of [CMake](https://cmake.org/) and [Boost C++ Libraries](http://www.boost.org/). Additional dependencies (already included in this repo) are:
-* [Clipper 6.4](http://www.angusj.com/delphi/clipper.php) for polygon intersection computation
+* [Clipper 6.4.2](https://github.com/skyrpex/clipper) for polygon intersection computation
 * [tinyxml 2.6.2](http://www.grinninglizard.com/tinyxml/) for xml parsing
 
 ## Usage
