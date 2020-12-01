@@ -36,7 +36,6 @@ before_build:
 build:
   project: C:\projects\LevelSyn\build\LevelSyn.sln
   parallel: true
-#  verbosity: quiet
 
 after_build:
     - cd C:\projects\LevelSyn\build\src\Release
