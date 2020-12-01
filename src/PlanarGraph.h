@@ -16,7 +16,7 @@
 #include <sstream>
 #include <fstream>
 
-#include "tinyxml.h"
+#include "../3rdparty/tinyxml2/tinyxml2.h"
 
 #include <boost/graph/adjacency_list.hpp>
 #include <boost/graph/properties.hpp>

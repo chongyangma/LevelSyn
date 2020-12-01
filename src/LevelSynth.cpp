@@ -552,9 +552,9 @@ bool CLevelSynth::SaveGraphAsSVG(const char* fileName, CPlanarGraph* ptrGraph, i
 		"<!-- graph visualization -->\n"
 		"<svg>\n"
 		"</svg>\n";
-	TiXmlDocument doc;
+	tinyxml2::XMLDocument doc;
 	doc.Parse(str);
-	TiXmlElement* root = doc.RootElement();
+	tinyxml2::XMLElement* root = doc.RootElement();
 	std::ostringstream ossViewBox;
 	ossViewBox << 0 << " " << 0 << " " << wd << " " << ht;
 	root->SetAttribute("viewBox", ossViewBox.str().c_str());
@@ -562,7 +562,7 @@ bool CLevelSynth::SaveGraphAsSVG(const char* fileName, CPlanarGraph* ptrGraph, i
 	// Dump edges...
 	for ( int i=0; i<graphNew.GetNumOfEdges(); i++ )
 	{
-		TiXmlElement edgeElement("path");
+		tinyxml2::XMLElement* edgeElement = doc.NewElement("path");
 		std::ostringstream ossPath;
 		CGraphEdge& edge = graphNew.GetEdge(i);
 		v2f p1 = graphNew.GetNodePos(edge.GetIdx0());
@@ -573,22 +573,22 @@ bool CLevelSynth::SaveGraphAsSVG(const char* fileName, CPlanarGraph* ptrGraph, i
 		ossPath << "L ";
 		ossPath << CRoomLayout::ConvertPosX(p2[0], pMin, pMax, wd) << " ";
 		ossPath << CRoomLayout::ConvertPosY(p2[1], pMin, pMax, ht) << " ";
-		edgeElement.SetAttribute("d", ossPath.str().c_str());
-		edgeElement.SetAttribute("fill", "none");
-		edgeElement.SetAttribute("stroke", "black");
-		edgeElement.SetAttribute("stroke-width", strokeWd);
+		edgeElement->SetAttribute("d", ossPath.str().c_str());
+		edgeElement->SetAttribute("fill", "none");
+		edgeElement->SetAttribute("stroke", "black");
+		edgeElement->SetAttribute("stroke-width", strokeWd);
 		root->InsertEndChild(edgeElement);
 	}
 	// Dump nodes...
 	for ( int i=0; i<graphNew.GetNumOfNodes(); i++ )
 	{
-		TiXmlElement nodeElement("circle");
+		tinyxml2::XMLElement* nodeElement = doc.NewElement("circle");
 		v2f pi = graphNew.GetNodePos(i);
-		nodeElement.SetAttribute("cx", CRoomLayout::ConvertPosX(pi[0], pMin, pMax, wd));
-		nodeElement.SetAttribute("cy", CRoomLayout::ConvertPosY(pi[1], pMin, pMax, ht));
-		nodeElement.SetAttribute("r", circleRad);
-		nodeElement.SetAttribute("fill", "red");
-		nodeElement.SetAttribute("stroke", "none");
+		nodeElement->SetAttribute("cx", CRoomLayout::ConvertPosX(pi[0], pMin, pMax, wd));
+		nodeElement->SetAttribute("cy", CRoomLayout::ConvertPosY(pi[1], pMin, pMax, ht));
+		nodeElement->SetAttribute("r", circleRad);
+		nodeElement->SetAttribute("fill", "red");
+		nodeElement->SetAttribute("stroke", "none");
 		root->InsertEndChild(nodeElement);
 	}
 	// Dump labels...
@@ -597,16 +597,16 @@ bool CLevelSynth::SaveGraphAsSVG(const char* fileName, CPlanarGraph* ptrGraph, i
 		int shiftX = (i >= 10) ? 8 : 3;
 		int shiftY = 5;
 		v2f pi = ComputeLabelPosition(i, &graphNew, labelRad);
-		TiXmlElement labelElement("text");
-		labelElement.SetAttribute("x", CRoomLayout::ConvertPosX(pi[0], pMin, pMax, wd) - shiftX);
-		labelElement.SetAttribute("y", CRoomLayout::ConvertPosY(pi[1], pMin, pMax, ht) + shiftY);
-		labelElement.SetAttribute("font-family", "Verdana");
-		labelElement.SetAttribute("font-size", 13);
-		labelElement.SetAttribute("fill", "blue");
+		tinyxml2::XMLElement* labelElement = doc.NewElement("text");
+		labelElement->SetAttribute("x", CRoomLayout::ConvertPosX(pi[0], pMin, pMax, wd) - shiftX);
+		labelElement->SetAttribute("y", CRoomLayout::ConvertPosY(pi[1], pMin, pMax, ht) + shiftY);
+		labelElement->SetAttribute("font-family", "Verdana");
+		labelElement->SetAttribute("font-size", 13);
+		labelElement->SetAttribute("fill", "blue");
 		std::ostringstream ossLabel;
 		ossLabel << i;
-		TiXmlText labelText(ossLabel.str().c_str());
-		labelElement.InsertEndChild(labelText);
+		tinyxml2::XMLText* labelText = doc.NewText(ossLabel.str().c_str());
+		labelElement->InsertEndChild(labelText);
 		root->InsertEndChild(labelElement);
 	}
 

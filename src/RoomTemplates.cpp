@@ -22,7 +22,7 @@ bool CRoomTemplates::LoadTemplatesFromXML(const char* fileName)
 	// Clear the current templates...
 	ClearTemplates();
 
-	TiXmlDocument doc;
+	tinyxml2::XMLDocument doc;
 	bool loadFlag = doc.LoadFile(fileName);
 	if ( loadFlag == false )
 	{
@@ -31,11 +31,10 @@ bool CRoomTemplates::LoadTemplatesFromXML(const char* fileName)
 	}
 	//doc.Print();
 
-	TiXmlNode* xmlRoot = 0;
-	xmlRoot = doc.RootElement();
+	tinyxml2::XMLElement* xmlRoot = doc.RootElement();
 	assert( xmlRoot );
 
-	TiXmlNode* xmlNode = xmlRoot->FirstChild();
+	tinyxml2::XMLNode* xmlNode = xmlRoot->FirstChild();
 	while ( xmlNode != 0 )
 	{
 		if ( strcmp(xmlNode->Value(), "Room") == 0 )
@@ -44,7 +43,7 @@ bool CRoomTemplates::LoadTemplatesFromXML(const char* fileName)
 			// Parse a room...
 			CRoom room;
 			std::vector<v2f> vertices;
-			TiXmlNode* xmlChildNode = xmlNode->FirstChild();
+			tinyxml2::XMLNode* xmlChildNode = xmlNode->FirstChild();
 			while ( xmlChildNode != 0 )
 			{
 				if ( strcmp(xmlChildNode->Value(), "Vertex") == 0 )
@@ -53,7 +52,7 @@ bool CRoomTemplates::LoadTemplatesFromXML(const char* fileName)
 					float px, py;
 					int rx = xmlChildNode->ToElement()->QueryFloatAttribute("px", &px);
 					int ry = xmlChildNode->ToElement()->QueryFloatAttribute("py", &py);
-					if ( rx == TIXML_SUCCESS && ry == TIXML_SUCCESS )
+					if ( rx == tinyxml2::XML_SUCCESS && ry == tinyxml2::XML_SUCCESS )
 					{
 						v2f pos;
 						pos[0] = px;
@@ -66,7 +65,7 @@ bool CRoomTemplates::LoadTemplatesFromXML(const char* fileName)
 					float px, py;
 					int rx = xmlChildNode->ToElement()->QueryFloatAttribute("px", &px);
 					int ry = xmlChildNode->ToElement()->QueryFloatAttribute("py", &py);
-					if ( rx == TIXML_SUCCESS && ry == TIXML_SUCCESS )
+					if ( rx == tinyxml2::XML_SUCCESS && ry == tinyxml2::XML_SUCCESS )
 					{
 						v2f pos;
 						pos[0] = px;
@@ -78,7 +77,7 @@ bool CRoomTemplates::LoadTemplatesFromXML(const char* fileName)
 				{
 					int type;
 					int r = xmlChildNode->ToElement()->QueryIntAttribute("type", &type);
-					if ( r == TIXML_SUCCESS )
+					if ( r == tinyxml2::XML_SUCCESS )
 					{
 						room.SetBoundaryType(type);
 					}
@@ -87,7 +86,7 @@ bool CRoomTemplates::LoadTemplatesFromXML(const char* fileName)
 				{
 					int idx;
 					int r = xmlChildNode->ToElement()->QueryIntAttribute("edgeIndex", &idx);
-					if ( r == TIXML_SUCCESS )
+					if ( r == tinyxml2::XML_SUCCESS )
 					{
 						doorPositions.push_back(idx);
 					}
@@ -121,41 +120,41 @@ bool CRoomTemplates::SaveTemplatesAsXML(const char* fileName)
 		"<!-- room template data -->\n"
 		"<Templates>\n"
 		"</Templates>\n";
-	TiXmlDocument doc;
+	tinyxml2::XMLDocument doc;
 	doc.Parse(str);
-	TiXmlNode* root = doc.RootElement();
+	tinyxml2::XMLElement* root = doc.RootElement();
 	// Dump nodes...
 	for ( int i=0; i<GetNumOfTemplates(); i++ )
 	{
-		TiXmlElement roomElement("Room");
+        tinyxml2::XMLElement* roomElement = doc.NewElement("Room");
 		for ( int j=0; j<GetRoom(i).GetNumOfVertices(); j++ )
 		{
-			TiXmlElement vertexElement("Vertex");
+			tinyxml2::XMLElement* vertexElement = doc.NewElement("Vertex");
 			v2f pj = GetRoom(i).GetVertex(j);
 			std::ostringstream oss0;
 			std::ostringstream oss1;
 			oss0 << pj[0];
 			oss1 << pj[1];
-			vertexElement.SetAttribute("px", oss0.str().c_str());
-			vertexElement.SetAttribute("py", oss1.str().c_str());
-			roomElement.InsertEndChild(vertexElement);
+			vertexElement->SetAttribute("px", oss0.str().c_str());
+			vertexElement->SetAttribute("py", oss1.str().c_str());
+			roomElement->InsertEndChild(vertexElement);
 		}
 		// Dump center shift...
-		TiXmlElement shiftElement("Shift");
+		tinyxml2::XMLElement* shiftElement = doc.NewElement("Shift");
 		v2f shift = GetRoom(i).GetCenterShift();
 		std::ostringstream oss0;
 		std::ostringstream oss1;
 		oss0 << shift[0];
 		oss1 << shift[1];
-		shiftElement.SetAttribute("px", oss0.str().c_str());
-		shiftElement.SetAttribute("py", oss1.str().c_str());
-		roomElement.InsertEndChild(shiftElement);
+		shiftElement->SetAttribute("px", oss0.str().c_str());
+		shiftElement->SetAttribute("py", oss1.str().c_str());
+		roomElement->InsertEndChild(shiftElement);
 		// Dump boundary type...
 		if ( GetRoom(i).GetBoundaryType() != 0 )
 		{
-			TiXmlElement boundaryElement("Boundary");
-			boundaryElement.SetAttribute("type", GetRoom(i).GetBoundaryType());
-			roomElement.InsertEndChild(boundaryElement);
+			tinyxml2::XMLElement* boundaryElement = doc.NewElement("Boundary");
+			boundaryElement->SetAttribute("type", GetRoom(i).GetBoundaryType());
+			roomElement->InsertEndChild(boundaryElement);
 		}
 		// Dump door positions...
 		if ( GetRoom(i).HasRestrictedDoorPosition() == true )
@@ -167,9 +166,9 @@ bool CRoomTemplates::SaveTemplatesAsXML(const char* fileName)
 				{
 					continue;
 				}
-				TiXmlElement doorElement("Door");
-				doorElement.SetAttribute("edgeIndex", j);
-				roomElement.InsertEndChild(doorElement);
+				tinyxml2::XMLElement* doorElement = doc.NewElement("Door");
+				doorElement->SetAttribute("edgeIndex", j);
+				roomElement->InsertEndChild(doorElement);
 			}
 		}
 		// Add room...

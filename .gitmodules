@@ -1,3 +1,6 @@
 [submodule "3rdparty/clipper"]
 	path = 3rdparty/clipper
 	url = https://github.com/skyrpex/clipper.git
+[submodule "3rdparty/tinyxml2"]
+	path = 3rdparty/tinyxml2
+	url = https://github.com/leethomason/tinyxml2.git
