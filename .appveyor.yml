@@ -15,10 +15,6 @@ configuration:
   #- Debug
   - Release
 
-init:
-  - cmd: cmake --version
-  - cmd: msbuild /version
-
 clone_folder: C:\projects\LevelSyn
 
 branches:
