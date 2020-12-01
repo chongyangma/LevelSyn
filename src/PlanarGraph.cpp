@@ -39,11 +39,10 @@ bool CPlanarGraph::LoadGraphFromXML(const char* fileName, bool flagDetectFaces /
 	ClearGraph();
 
 	tinyxml2::XMLDocument doc;
-	bool loadFlag = doc.LoadFile(fileName);
-	if ( loadFlag == false )
+	if ( doc.LoadFile(fileName) != tinyxml2::XML_SUCCESS )
 	{
 		std::cout << "Failed to load graph from " << fileName << "!\n";
-		return loadFlag;
+		return false;
 	}
 	//doc.Print();
 
@@ -128,13 +127,13 @@ bool CPlanarGraph::LoadGraphFromXML(const char* fileName, bool flagDetectFaces /
 	}
 	if ( flagDetectFaces == false )
 	{
-		return loadFlag;
+		return false;
 	}
 	//PrintGraph();
 
 	// Step 1: Detect faces of the planar graph...
 	DetectFaces();
-	return loadFlag;
+	return true;
 }
 
 bool CPlanarGraph::SaveGraphAsXML(const char* fileName)

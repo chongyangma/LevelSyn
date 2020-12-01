@@ -23,11 +23,10 @@ bool CRoomTemplates::LoadTemplatesFromXML(const char* fileName)
 	ClearTemplates();
 
 	tinyxml2::XMLDocument doc;
-	bool loadFlag = doc.LoadFile(fileName);
-	if ( loadFlag == false )
+	if ( doc.LoadFile(fileName) != tinyxml2::XML_SUCCESS )
 	{
 		std::cout << "Failed to load templates from " << fileName << "!\n";
-		return loadFlag;
+		return false;
 	}
 	//doc.Print();
 
@@ -111,7 +110,7 @@ bool CRoomTemplates::LoadTemplatesFromXML(const char* fileName)
 
 	SetRoomTypes();
 	//PrintTemplates();
-	return loadFlag;
+	return true;
 }
 
 bool CRoomTemplates::SaveTemplatesAsXML(const char* fileName)
