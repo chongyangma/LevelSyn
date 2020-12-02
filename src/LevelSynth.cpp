@@ -110,7 +110,6 @@ CLevelSynth::CLevelSynth()
     m_ptrTemplates = NULL;
     m_solutionCount = 0;
     m_bestSolCount = 0;
-    m_iterationCount = 0;
     m_chainCount = 0;
     m_backTrackCount = 0;
     m_backTrackLevel = 0;
@@ -996,7 +995,6 @@ bool CLevelSynth::Solve1Dchain(std::vector<int>& indices, std::vector<int>* weig
 
         for (int j = 0; j < m; j++)
         {
-            m_iterationCount++;
             CPlanarGraph graphTmp = *ptrGraph;
             CRoomLayout layoutTmp = m_layout;
             int adjustedIndex = RandomlyAdjustOneRoom(layoutTmp, &graphTmp, indices, weightedIndices);

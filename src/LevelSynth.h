@@ -86,11 +86,8 @@ public:
 
     void ResetSolutionCount() { m_solutionCount = 0; }
 
-    int GetIterationCount() { return m_iterationCount; }
-
     void ResetIterationCount()
     {
-        m_iterationCount = 0;
         m_chainCount = 0;
     }
 
@@ -184,12 +181,11 @@ private:
     int m_solutionCount;
     std::vector<v2f> m_roomPositions;
     std::vector<std::vector<int>> m_visitedNeighbors;
-    int m_pickIndexCount;
-    int m_bestSolCount;
+    int m_pickIndexCount = 0;
+    int m_bestSolCount = 0;
 
     bool m_flagVisitedNoNode;
 
-    int m_iterationCount;
     int m_chainCount;
 
     int m_backTrackCount;

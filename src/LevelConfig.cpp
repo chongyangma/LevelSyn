@@ -300,7 +300,7 @@ void CLevelConfig::UpdateOutputPrefix()
     std::cout << "Generating results into the directory: " << m_outputPrefix.c_str() << "...\n";
 }
 
-void CLevelConfig::DumpStringParam(FILE* file, const char* param, const std::string str)
+void CLevelConfig::DumpStringParam(FILE* file, const char* param, const std::string& str)
 {
     if (str.empty() != true)
     {
