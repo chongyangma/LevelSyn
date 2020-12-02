@@ -13,30 +13,30 @@
 class CRoomTemplates
 {
 public:
-	void ClearTemplates() { m_rooms.clear(); }
+    void ClearTemplates() { m_rooms.clear(); }
 
-	void PrintTemplates();
+    void PrintTemplates();
 
-	void AddTemplate(CRoom& room) { m_rooms.push_back(room); }
+    void AddTemplate(CRoom& room) { m_rooms.push_back(room); }
 
-	bool LoadTemplatesFromXML(const char* fileName);
+    bool LoadTemplatesFromXML(const char* fileName);
 
-	bool SaveTemplatesAsXML(const char* fileName);
+    bool SaveTemplatesAsXML(const char* fileName);
 
-	int GetNumOfTemplates() { return int(m_rooms.size()); }
+    int GetNumOfTemplates() { return int(m_rooms.size()); }
 
-	CRoom& GetRoom(int idx) { return m_rooms[idx]; }
+    CRoom& GetRoom(int idx) { return m_rooms[idx]; }
 
-	const std::vector<CRoom>& GetRooms() const { return m_rooms; }
+    const std::vector<CRoom>& GetRooms() const { return m_rooms; }
 
-	void EnrichByRotating180Degrees();
+    void EnrichByRotating180Degrees();
 
-	void EnrichByIntroducingSizeVariation();
+    void EnrichByIntroducingSizeVariation();
 
-	void SetRoomTypes();
+    void SetRoomTypes();
 
 private:
-	std::vector<CRoom> m_rooms;
+    std::vector<CRoom> m_rooms;
 };
 
 #endif // ROOMTEMPLATES_H
