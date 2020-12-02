@@ -14,7 +14,7 @@
 #include <cstring>
 #include <vector>
 
-#include "../tinyxml/tinyxml.h"
+#include "tinyxml2.h"
 
 #include "vec.h"
 #include "RoomEdge.h"

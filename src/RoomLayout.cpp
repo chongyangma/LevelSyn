@@ -139,21 +139,21 @@ bool CRoomLayout::SaveLayoutAsSVG(const char* fileName, int wd /* = 400 */, int 
 		"<!-- layout visualization -->\n"
 		"<svg>\n"
 		"</svg>\n";
-	TiXmlDocument doc;
+	tinyxml2::XMLDocument doc;
 	doc.Parse(str);
-	TiXmlElement* root = doc.RootElement();
+	tinyxml2::XMLElement* root = doc.RootElement();
 	std::ostringstream ossViewBox;
 	ossViewBox << 0 << " " << 0 << " " << wd << " " << ht;
 	root->SetAttribute("viewBox", ossViewBox.str().c_str());
 	root->SetAttribute("xmlns", "http://www.w3.org/2000/svg");
 	// Draw a background...
-	TiXmlElement bgElement("rect");
-	bgElement.SetAttribute("x", 0);
-	bgElement.SetAttribute("y", 0);
-	bgElement.SetAttribute("width", wd);
-	bgElement.SetAttribute("height", ht);
-	bgElement.SetAttribute("fill", "#00A000");
-	bgElement.SetAttribute("stroke", "none");
+	tinyxml2::XMLElement* bgElement = doc.NewElement("rect");
+	bgElement->SetAttribute("x", 0);
+	bgElement->SetAttribute("y", 0);
+	bgElement->SetAttribute("width", wd);
+	bgElement->SetAttribute("height", ht);
+	bgElement->SetAttribute("fill", "#00A000");
+	bgElement->SetAttribute("stroke", "none");
 	//root->InsertEndChild(bgElement);
 	// Dump rooms as closed polygons...
 	for ( int i=0; i<GetNumOfRooms(); i++ )
@@ -162,7 +162,7 @@ bool CRoomLayout::SaveLayoutAsSVG(const char* fileName, int wd /* = 400 */, int 
 		{
 			continue;
 		}
-		TiXmlElement roomElement("path");
+		tinyxml2::XMLElement* roomElement = doc.NewElement("path");
 		std::ostringstream ossPath;
 		CRoom& room = GetRoom(i);
 		for ( int j=0; j<room.GetNumOfVertices(); j++ )
@@ -180,21 +180,21 @@ bool CRoomLayout::SaveLayoutAsSVG(const char* fileName, int wd /* = 400 */, int 
 			ossPath << ConvertPosY(pj[1], pMin, pMax, ht) << " ";
 		}
 		ossPath << "z";
-		roomElement.SetAttribute("d", ossPath.str().c_str());
+		roomElement->SetAttribute("d", ossPath.str().c_str());
 		if ( room.GetFlagFixed() == true )
 		{
-			roomElement.SetAttribute("fill", "#808080");
+			roomElement->SetAttribute("fill", "#808080");
 		}
 		else if ( room.GetBoundaryType() == 2 )
 		{
 			// Corridors...
-			roomElement.SetAttribute("fill", "#FAFAFA");
+			roomElement->SetAttribute("fill", "#FAFAFA");
 		}
 		else
 		{
-			roomElement.SetAttribute("fill", "#E0E0E0");
+			roomElement->SetAttribute("fill", "#E0E0E0");
 		}
-		roomElement.SetAttribute("stroke", "none");
+		roomElement->SetAttribute("stroke", "none");
 		root->InsertEndChild(roomElement);
 	}
 	// Dump rooms as sets of line segments...
@@ -204,7 +204,7 @@ bool CRoomLayout::SaveLayoutAsSVG(const char* fileName, int wd /* = 400 */, int 
 		{
 			continue;
 		}
-		TiXmlElement roomElement("path");
+		tinyxml2::XMLElement* roomElement = doc.NewElement("path");
 		std::ostringstream ossPath;
 		CRoom& room = GetRoom(i);
 
@@ -241,10 +241,10 @@ bool CRoomLayout::SaveLayoutAsSVG(const char* fileName, int wd /* = 400 */, int 
 				ossPath << ConvertPosY(p2[1], pMin, pMax, ht) << " ";
 			}
 		}
-		roomElement.SetAttribute("d", ossPath.str().c_str());
-		roomElement.SetAttribute("fill", "none");
-		roomElement.SetAttribute("stroke", "black");
-		roomElement.SetAttribute("stroke-width", strokeWd);
+		roomElement->SetAttribute("d", ossPath.str().c_str());
+		roomElement->SetAttribute("fill", "none");
+		roomElement->SetAttribute("stroke", "black");
+		roomElement->SetAttribute("stroke-width", strokeWd);
 		root->InsertEndChild(roomElement);
 	}
 	// Dump vertices...
@@ -257,13 +257,13 @@ bool CRoomLayout::SaveLayoutAsSVG(const char* fileName, int wd /* = 400 */, int 
 		CRoom& room = GetRoom(i);
 		for ( int j=0; j<room.GetNumOfVertices(); j++ )
 		{
-			TiXmlElement vertexElement("circle");
+			tinyxml2::XMLElement* vertexElement = doc.NewElement("circle");
 			v2f pj = room.GetVertex(j);
-			vertexElement.SetAttribute("cx", ConvertPosX(pj[0], pMin, pMax, wd));
-			vertexElement.SetAttribute("cy", ConvertPosY(pj[1], pMin, pMax, ht));
-			vertexElement.SetAttribute("r", strokeWd / 2);
-			vertexElement.SetAttribute("fill", "black");
-			vertexElement.SetAttribute("stroke", "none");
+			vertexElement->SetAttribute("cx", ConvertPosX(pj[0], pMin, pMax, wd));
+			vertexElement->SetAttribute("cy", ConvertPosY(pj[1], pMin, pMax, ht));
+			vertexElement->SetAttribute("r", strokeWd / 2);
+			vertexElement->SetAttribute("fill", "black");
+			vertexElement->SetAttribute("stroke", "none");
 			root->InsertEndChild(vertexElement);
 		}
 	}
@@ -273,7 +273,7 @@ bool CRoomLayout::SaveLayoutAsSVG(const char* fileName, int wd /* = 400 */, int 
 		CorridorWall& wall = GetCorridorWall(i);
 		v2f p1 = wall.GetPos1();
 		v2f p2 = wall.GetPos2();
-		TiXmlElement wallElement("path");
+		tinyxml2::XMLElement* wallElement = doc.NewElement("path");
 		std::ostringstream ossWall;
 		ossWall << "M ";
 		ossWall << CRoomLayout::ConvertPosX(p1[0], pMin, pMax, wd) << " ";
@@ -281,24 +281,24 @@ bool CRoomLayout::SaveLayoutAsSVG(const char* fileName, int wd /* = 400 */, int 
 		ossWall << "L ";
 		ossWall << CRoomLayout::ConvertPosX(p2[0], pMin, pMax, wd) << " ";
 		ossWall << CRoomLayout::ConvertPosY(p2[1], pMin, pMax, ht) << " ";
-		wallElement.SetAttribute("d", ossWall.str().c_str());
-		wallElement.SetAttribute("fill", "none");
-		wallElement.SetAttribute("stroke", "black");
-		wallElement.SetAttribute("stroke-width", strokeWd);
+		wallElement->SetAttribute("d", ossWall.str().c_str());
+		wallElement->SetAttribute("fill", "none");
+		wallElement->SetAttribute("stroke", "black");
+		wallElement->SetAttribute("stroke-width", strokeWd);
 		root->InsertEndChild(wallElement);
-		TiXmlElement vertexElement1("circle");
-		vertexElement1.SetAttribute("cx", ConvertPosX(p1[0], pMin, pMax, wd));
-		vertexElement1.SetAttribute("cy", ConvertPosY(p1[1], pMin, pMax, ht));
-		vertexElement1.SetAttribute("r", strokeWd / 2);
-		vertexElement1.SetAttribute("fill", "black");
-		vertexElement1.SetAttribute("stroke", "none");
+		tinyxml2::XMLElement* vertexElement1 = doc.NewElement("circle");
+		vertexElement1->SetAttribute("cx", ConvertPosX(p1[0], pMin, pMax, wd));
+		vertexElement1->SetAttribute("cy", ConvertPosY(p1[1], pMin, pMax, ht));
+		vertexElement1->SetAttribute("r", strokeWd / 2);
+		vertexElement1->SetAttribute("fill", "black");
+		vertexElement1->SetAttribute("stroke", "none");
 		root->InsertEndChild(vertexElement1);
-		TiXmlElement vertexElement2("circle");
-		vertexElement2.SetAttribute("cx", ConvertPosX(p2[0], pMin, pMax, wd));
-		vertexElement2.SetAttribute("cy", ConvertPosY(p2[1], pMin, pMax, ht));
-		vertexElement2.SetAttribute("r", strokeWd / 2);
-		vertexElement2.SetAttribute("fill", "black");
-		vertexElement2.SetAttribute("stroke", "none");
+		tinyxml2::XMLElement* vertexElement2 = doc.NewElement("circle");
+		vertexElement2->SetAttribute("cx", ConvertPosX(p2[0], pMin, pMax, wd));
+		vertexElement2->SetAttribute("cy", ConvertPosY(p2[1], pMin, pMax, ht));
+		vertexElement2->SetAttribute("r", strokeWd / 2);
+		vertexElement2->SetAttribute("fill", "black");
+		vertexElement2->SetAttribute("stroke", "none");
 		root->InsertEndChild(vertexElement2);
 	}
 	// Dump labels...
@@ -313,16 +313,16 @@ bool CRoomLayout::SaveLayoutAsSVG(const char* fileName, int wd /* = 400 */, int 
 		int shiftY = 5;
 		v2f pi = GetRoom(i).GetRoomCenter();
 		pi = pi + GetRoom(i).GetCenterShift();
-		TiXmlElement labelElement("text");
-		labelElement.SetAttribute("x", ConvertPosX(pi[0], pMin, pMax, wd) - shiftX);
-		labelElement.SetAttribute("y", ConvertPosY(pi[1], pMin, pMax, ht) + shiftY);
-		labelElement.SetAttribute("font-family", "Verdana");
-		labelElement.SetAttribute("font-size", 15);
-		labelElement.SetAttribute("fill", "blue");
+		tinyxml2::XMLElement* labelElement = doc.NewElement("text");
+		labelElement->SetAttribute("x", ConvertPosX(pi[0], pMin, pMax, wd) - shiftX);
+		labelElement->SetAttribute("y", ConvertPosY(pi[1], pMin, pMax, ht) + shiftY);
+		labelElement->SetAttribute("font-family", "Verdana");
+		labelElement->SetAttribute("font-size", 15);
+		labelElement->SetAttribute("fill", "blue");
 		std::ostringstream ossLabel;
 		ossLabel << i;
-		TiXmlText labelText(ossLabel.str().c_str());
-		labelElement.InsertEndChild(labelText);
+		tinyxml2::XMLText* labelText = doc.NewText(ossLabel.str().c_str());
+		labelElement->InsertEndChild(labelText);
 		if ( labelFlag == true )
 		{
 			root->InsertEndChild(labelElement);

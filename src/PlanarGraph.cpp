@@ -38,20 +38,18 @@ bool CPlanarGraph::LoadGraphFromXML(const char* fileName, bool flagDetectFaces /
 	// Clear the current graph...
 	ClearGraph();
 
-	TiXmlDocument doc;
-	bool loadFlag = doc.LoadFile(fileName);
-	if ( loadFlag == false )
+	tinyxml2::XMLDocument doc;
+	if ( doc.LoadFile(fileName) != tinyxml2::XML_SUCCESS )
 	{
 		std::cout << "Failed to load graph from " << fileName << "!\n";
-		return loadFlag;
+		return false;
 	}
 	//doc.Print();
 
-	TiXmlNode* xmlRoot = 0;
-	xmlRoot = doc.RootElement();
+	tinyxml2::XMLElement* xmlRoot = doc.RootElement();
 	assert( xmlRoot );
 
-	TiXmlNode* xmlNode = xmlRoot->FirstChild();
+	tinyxml2::XMLNode* xmlNode = xmlRoot->FirstChild();
 	while ( xmlNode != 0 )
 	{
 		if ( strcmp(xmlNode->Value(), "Node") == 0 )
@@ -61,7 +59,7 @@ bool CPlanarGraph::LoadGraphFromXML(const char* fileName, bool flagDetectFaces /
 			float px, py;
 			int rx = xmlNode->ToElement()->QueryFloatAttribute("px", &px);
 			int ry = xmlNode->ToElement()->QueryFloatAttribute("py", &py);
-			if ( rx != TIXML_SUCCESS || ry != TIXML_SUCCESS )
+			if ( rx != tinyxml2::XML_SUCCESS || ry != tinyxml2::XML_SUCCESS )
 			{
 				graphNode.RandomlyInitPos();
 			}
@@ -71,19 +69,19 @@ bool CPlanarGraph::LoadGraphFromXML(const char* fileName, bool flagDetectFaces /
 			}
 			int type;
 			int r = xmlNode->ToElement()->QueryIntAttribute("type", &type);
-			if ( r == TIXML_SUCCESS )
+			if ( r == tinyxml2::XML_SUCCESS )
 			{
 				graphNode.SetType(type);
 			}
 			int boundary;
 			int rb = xmlNode->ToElement()->QueryIntAttribute("boundary", &boundary);
-			if ( rb == TIXML_SUCCESS )
+			if ( rb == tinyxml2::XML_SUCCESS )
 			{
 				graphNode.SetBoundaryType(boundary);
 			}
 			int fixed;
 			int rf = xmlNode->ToElement()->QueryIntAttribute("fix", &fixed);
-			if ( rf == TIXML_SUCCESS && fixed != 0 )
+			if ( rf == tinyxml2::XML_SUCCESS && fixed != 0 )
 			{
 				graphNode.SetFlagFixed(true);
 			}
@@ -101,12 +99,12 @@ bool CPlanarGraph::LoadGraphFromXML(const char* fileName, bool flagDetectFaces /
 			int idx1 = -1;
 			int r0 = xmlNode->ToElement()->QueryIntAttribute("node0", &idx0);
 			int r1 = xmlNode->ToElement()->QueryIntAttribute("node1", &idx1);
-			if ( r0 != TIXML_SUCCESS )
+			if ( r0 != tinyxml2::XML_SUCCESS )
 			{
 				const char* str = xmlNode->ToElement()->Attribute("name0");
 				idx0 = FindNodeAccordingToName(str);
 			}
-			if ( r1 != TIXML_SUCCESS )
+			if ( r1 != tinyxml2::XML_SUCCESS )
 			{
 				const char* str = xmlNode->ToElement()->Attribute("name1");
 				idx1 = FindNodeAccordingToName(str);
@@ -129,13 +127,13 @@ bool CPlanarGraph::LoadGraphFromXML(const char* fileName, bool flagDetectFaces /
 	}
 	if ( flagDetectFaces == false )
 	{
-		return loadFlag;
+		return false;
 	}
 	//PrintGraph();
 
 	// Step 1: Detect faces of the planar graph...
 	DetectFaces();
-	return loadFlag;
+	return true;
 }
 
 bool CPlanarGraph::SaveGraphAsXML(const char* fileName)
@@ -144,38 +142,38 @@ bool CPlanarGraph::SaveGraphAsXML(const char* fileName)
 		"<!-- graph input data -->\n"
 		"<Graph>\n"
 		"</Graph>\n";
-	TiXmlDocument doc;
+	tinyxml2::XMLDocument doc;
 	doc.Parse(str);
-	TiXmlNode* root = doc.RootElement();
+	tinyxml2::XMLElement* root = doc.RootElement();
 	// Dump nodes...
 	for ( int i=0; i<int(m_nodes.size()); i++ )
 	{
-		TiXmlElement nodeElem("Node");
-		nodeElem.SetAttribute("name", m_nodes[i].GetName().c_str());
+		tinyxml2::XMLElement* nodeElem = doc.NewElement("Node");
+		nodeElem->SetAttribute("name", m_nodes[i].GetName().c_str());
 		std::ostringstream oss0;
 		std::ostringstream oss1;
 		oss0 << m_nodes[i].GetPos()[0];
 		oss1 << m_nodes[i].GetPos()[1];
-		nodeElem.SetAttribute("px", oss0.str().c_str());
-		nodeElem.SetAttribute("py", oss1.str().c_str());
+		nodeElem->SetAttribute("px", oss0.str().c_str());
+		nodeElem->SetAttribute("py", oss1.str().c_str());
 		std::ostringstream ossType;
 		ossType << m_nodes[i].GetType();
-		nodeElem.SetAttribute("type", ossType.str().c_str());
+		nodeElem->SetAttribute("type", ossType.str().c_str());
 		std::ostringstream ossFixed;
 		ossFixed << m_nodes[i].GetFlagFixed();
-		nodeElem.SetAttribute("fix", ossFixed.str().c_str());
+		nodeElem->SetAttribute("fix", ossFixed.str().c_str());
 		if ( m_nodes[i].GetBoundaryType() != 0 )
 		{
-			nodeElem.SetAttribute("boundary", m_nodes[i].GetBoundaryType());
+			nodeElem->SetAttribute("boundary", m_nodes[i].GetBoundaryType());
 		}
 		root->InsertEndChild(nodeElem);
 	}
 	// Dump edges...
 	for ( int i=0; i<int(m_edges.size()); i++ )
 	{
-		TiXmlElement edgeElem("Edge");
-		edgeElem.SetAttribute("node0", m_edges[i].GetIdx0());
-		edgeElem.SetAttribute("node1", m_edges[i].GetIdx1());
+		tinyxml2::XMLElement* edgeElem = doc.NewElement("Edge");
+		edgeElem->SetAttribute("node0", m_edges[i].GetIdx0());
+		edgeElem->SetAttribute("node1", m_edges[i].GetIdx1());
 		root->InsertEndChild(edgeElem);
 	}
 
