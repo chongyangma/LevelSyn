@@ -1,6 +1,2 @@
-SET(CLIPPER_FOLDER clipper/cpp)
-FILE(GLOB CLIPPER_SOURCES ${CLIPPER_FOLDER}/*.cpp)
-FILE(GLOB CLIPPER_HEADERS ${CLIPPER_FOLDER}/*.hpp)
-ADD_LIBRARY(polyclipping STATIC ${CLIPPER_SOURCES} ${CLIPPER_HEADERS})
-
+ADD_LIBRARY(polyclipping STATIC clipper/cpp/clipper.cpp clipper/cpp/clipper.hpp)
 ADD_LIBRARY(tinyxml2 STATIC tinyxml2/tinyxml2.cpp tinyxml2/tinyxml2.h)
