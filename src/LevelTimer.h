@@ -10,84 +10,85 @@
 
 #ifdef __APPLE__
 
-#include <CoreFoundation/CoreFoundation.h>
+    #include <CoreFoundation/CoreFoundation.h>
 
 class CLevelTimer
 {
 public:
-	CLevelTimer() {}
+    CLevelTimer() {}
 
-	double GetTime()
-	{
-		double time = CFAbsoluteTimeGetCurrent();
-		return time;
-	}
+    double GetTime()
+    {
+        double time = CFAbsoluteTimeGetCurrent();
+        return time;
+    }
 
-	double GetElapsedTime(double old_time)
-	{
-		double time = CFAbsoluteTimeGetCurrent();
-		return (time - old_time);
-	}
+    double GetElapsedTime(double old_time)
+    {
+        double time = CFAbsoluteTimeGetCurrent();
+        return (time - old_time);
+    }
 };
 
 #endif
 
 #ifdef WIN32
 
-#include <windows.h>
+    #include <windows.h>
 typedef __int64 i64;
 
 class CLevelTimer
 {
 public:
-	CLevelTimer();
-	double GetTime();
-	double GetElapsedTime(double old_time);
+    CLevelTimer();
+    double GetTime();
+    double GetElapsedTime(double old_time);
 
 private:
-	i64 m_freq;
-	i64 m_clocks;
+    i64 m_freq;
+    i64 m_clocks;
 };
 
-CLevelTimer::CLevelTimer() : m_clocks(0)
+CLevelTimer::CLevelTimer() :
+    m_clocks(0)
 {
-	QueryPerformanceFrequency((LARGE_INTEGER *)&m_freq);
+    QueryPerformanceFrequency((LARGE_INTEGER*)&m_freq);
 }
 
 double CLevelTimer::GetTime()
 {
-	QueryPerformanceCounter((LARGE_INTEGER *)&m_clocks);
-	return (double)m_clocks / (double)m_freq;
+    QueryPerformanceCounter((LARGE_INTEGER*)&m_clocks);
+    return (double)m_clocks / (double)m_freq;
 }
 
 double CLevelTimer::GetElapsedTime(double old_time)
 {
-	QueryPerformanceCounter((LARGE_INTEGER *)&m_clocks);
-	return ((double)m_clocks / (double)m_freq - old_time);
+    QueryPerformanceCounter((LARGE_INTEGER*)&m_clocks);
+    return ((double)m_clocks / (double)m_freq - old_time);
 }
 
 #endif
 
 #ifdef __linux__
 
-#include <time.h>
+    #include <time.h>
 
 class CLevelTimer
 {
- public:
-  CLevelTimer() {}
-  
-  double GetTime()
-  {
-    double time_res = (double)time(NULL);
-    return time_res;
-  }
-  
-  double GetElapsedTime(double old_time)
-  {
-    double time_res = time(NULL);
-    return (time_res - old_time);
-  }
+public:
+    CLevelTimer() {}
+
+    double GetTime()
+    {
+        double time_res = (double)time(NULL);
+        return time_res;
+    }
+
+    double GetElapsedTime(double old_time)
+    {
+        double time_res = time(NULL);
+        return (time_res - old_time);
+    }
 };
 
 #endif

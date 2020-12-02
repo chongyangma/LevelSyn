@@ -12,7 +12,7 @@ LINK_DIRECTORIES    (${Boost_LIBRARY_DIRS})
 INCLUDE_DIRECTORIES (${Boost_INCLUDE_DIRS})
 
 IF(APPLE)
-   FIND_LIBRARY(coreFoundation CoreFoundation)
+    FIND_LIBRARY(coreFoundation CoreFoundation)
 ENDIF()
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY $<1:${CMAKE_SOURCE_DIR}/bin>)
@@ -27,5 +27,5 @@ ADD_EXECUTABLE(levels ${LEVEL_SYN_SOURCES} ${LEVEL_SYN_HEADERS})
 TARGET_LINK_LIBRARIES(levels tinyxml2 polyclipping ${Boost_LIBRARIES} ${Boost_THREAD_LIBRARY})
 
 if(APPLE)
-   TARGET_LINK_LIBRARIES(levels ${coreFoundation})
+    TARGET_LINK_LIBRARIES(levels ${coreFoundation})
 endif()

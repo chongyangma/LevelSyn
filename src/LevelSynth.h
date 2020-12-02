@@ -8,17 +8,18 @@
 #ifndef LEVELSYNTH_H
 #define LEVELSYNTH_H
 
+#include "ConfigSpace.h"
 #include "LevelConfig.h"
 #include "PlanarGraph.h"
-#include "RoomTemplates.h"
 #include "RoomLayout.h"
+#include "RoomTemplates.h"
 #include "clipperWrapper.h"
-#include "ConfigSpace.h"
+
 #include <stack>
 #include <string>
 
 #ifdef __linux__
-#include <stdarg.h>
+    #include <stdarg.h>
 #endif
 
 //#define PRINT_OUT_DEBUG_INFO
@@ -27,173 +28,172 @@
 class CurrentState
 {
 public:
-	CPlanarGraph m_stateGraph;
-	std::vector<v2f> m_stateRoomPositions;
-	std::vector<int> myIndices;
+    CPlanarGraph m_stateGraph;
+    std::vector<v2f> m_stateRoomPositions;
+    std::vector<int> myIndices;
 
-	float m_stateEnergy;
+    float m_stateEnergy;
 
-	void MoveRoomsToSceneCenter(CPlanarGraph* ptrGraph);
+    void MoveRoomsToSceneCenter(CPlanarGraph* ptrGraph);
 
-	void Move1DchainToSceneCenter(std::vector<int>& indices);
+    void Move1DchainToSceneCenter(std::vector<int>& indices);
 
-	float GetStateDifference(CurrentState& otherState, CPlanarGraph* ptrGraph);
+    float GetStateDifference(CurrentState& otherState, CPlanarGraph* ptrGraph);
 
-	bool InsertToNewStates(std::vector<CurrentState>& newStates, CPlanarGraph* ptrGraph);
+    bool InsertToNewStates(std::vector<CurrentState>& newStates, CPlanarGraph* ptrGraph);
 };
 
 class CLevelSynth
 {
 public:
+    CLevelSynth();
 
-	CLevelSynth();
+    CLevelSynth(CPlanarGraph* ptrGraph, CRoomTemplates* ptrTemplates);
 
-	CLevelSynth(CPlanarGraph* ptrGraph, CRoomTemplates* ptrTemplates);
+    void SetGraphAndTemplates(CPlanarGraph* ptrGraph, CRoomTemplates* ptrTemplates);
 
-	void SetGraphAndTemplates(CPlanarGraph* ptrGraph, CRoomTemplates* ptrTemplates);
+    void SetGraph(CPlanarGraph* ptrGraph);
 
-	void SetGraph(CPlanarGraph* ptrGraph);
+    bool MovePickedGraphNode(float& dx, float& dy);
 
-	bool MovePickedGraphNode(float& dx, float& dy);
+    bool AdjustPickedRoom(float& dx, float& dy);
 
-	bool AdjustPickedRoom(float& dx, float& dy);
+    void InitScene();
 
-	void InitScene();
+    CRoomLayout GetLayout(CPlanarGraph* ptrGraph, std::vector<v2f>& roomPositions);
 
-	CRoomLayout GetLayout(CPlanarGraph* ptrGraph, std::vector<v2f>& roomPositions);
+    void SynthesizeScene();
 
-	void SynthesizeScene();
+    void UpdateGraphFromLayout();
 
-	void UpdateGraphFromLayout();
+    bool PostProcessing(CRoomLayout& layout, CPlanarGraph* ptrGraph);
 
-	bool PostProcessing(CRoomLayout& layout, CPlanarGraph* ptrGraph);
+    bool OpenDoors(CRoomLayout& layout, CPlanarGraph* ptrGraph, bool flagPartial = false);
 
-	bool OpenDoors(CRoomLayout& layout, CPlanarGraph* ptrGraph, bool flagPartial = false);
+    bool OpenDoor(CRoom& room, RoomDoor& door, float width = -1.f);
 
-	bool OpenDoor(CRoom& room, RoomDoor& door, float width = -1.f);
+    bool OpenDoors(CRoomLayout& layout, CRoomLayout& layoutShrinked, CPlanarGraph* ptrGraph, float thrinkDist);
 
-	bool OpenDoors(CRoomLayout& layout, CRoomLayout& layoutShrinked, CPlanarGraph* ptrGraph, float thrinkDist);
+    void ShrinkRooms(CRoomLayout& layout, float dist);
 
-	void ShrinkRooms(CRoomLayout& layout, float dist);
+    void ShrinkRoom(CRoom& room, float dist);
 
-	void ShrinkRoom(CRoom& room, float dist);
+    bool SaveGraphAsSVG(const char* fileName, CPlanarGraph* ptrGraph, int wd = 800, int ht = 800, float labelRad = 0.25f);
 
-	bool SaveGraphAsSVG(const char* fileName, CPlanarGraph* ptrGraph, int wd = 800, int ht = 800, float labelRad = 0.25f);
+    static bool CompareStateEnergySmallerFirst(const CurrentState& state1, const CurrentState& state2);
 
-	static bool CompareStateEnergySmallerFirst(const CurrentState& state1, const CurrentState& state2);
+    int GetSolutionCount() { return m_solutionCount; }
 
-	int GetSolutionCount() { return m_solutionCount; }
+    void ResetSolutionCount() { m_solutionCount = 0; }
 
-	void ResetSolutionCount() { m_solutionCount = 0; }
+    int GetIterationCount() { return m_iterationCount; }
 
-	int GetIterationCount() { return m_iterationCount; }
+    void ResetIterationCount()
+    {
+        m_iterationCount = 0;
+        m_chainCount = 0;
+    }
 
-	void ResetIterationCount()
-	{
-		m_iterationCount = 0;
-		m_chainCount = 0;
-	}
-
-	inline std::string sprint(const char* fmt, ...)
-	{
-		int size = 512;
-		char* buffer = 0;
-		buffer = new char[size];
-		va_list vl;
-		va_start(vl, fmt);
-		int nsize = vsnprintf(buffer, size, fmt, vl);
-		if( size <= nsize )
-		{
-			//fail delete buffer and try again
-			delete[] buffer;
-			buffer = 0;
-			buffer = new char[nsize + 1]; //+1 for /0
-			nsize = vsnprintf(buffer, size, fmt, vl);
-		}
-		std::string ret(buffer);
-		va_end(vl);
-		delete[] buffer;
-		return ret;
-	}
+    inline std::string sprint(const char* fmt, ...)
+    {
+        int size = 512;
+        char* buffer = 0;
+        buffer = new char[size];
+        va_list vl;
+        va_start(vl, fmt);
+        int nsize = vsnprintf(buffer, size, fmt, vl);
+        if (size <= nsize)
+        {
+            //fail delete buffer and try again
+            delete[] buffer;
+            buffer = 0;
+            buffer = new char[nsize + 1]; //+1 for /0
+            nsize = vsnprintf(buffer, size, fmt, vl);
+        }
+        std::string ret(buffer);
+        va_end(vl);
+        delete[] buffer;
+        return ret;
+    }
 
 private:
-	void SynthesizeSceneViaMainLoop();
+    void SynthesizeSceneViaMainLoop();
 
-	bool Solve1Dchain(std::vector<int>& indices, std::vector<int> *tmpIndices, CurrentState& oldState, std::vector<CurrentState>& newStates);
+    bool Solve1Dchain(std::vector<int>& indices, std::vector<int>* tmpIndices, CurrentState& oldState, std::vector<CurrentState>& newStates);
 
-	bool Solve1DchainILS(std::vector<int>& indices, CurrentState& oldState, std::vector<CurrentState>& newStates);
+    bool Solve1DchainILS(std::vector<int>& indices, CurrentState& oldState, std::vector<CurrentState>& newStates);
 
-	void SetCurrentState(CurrentState& s);
+    void SetCurrentState(CurrentState& s);
 
-	void SetSequenceAs1Dchain(const std::vector<int>& indices, CPlanarGraph* ptrGraph);
+    void SetSequenceAs1Dchain(const std::vector<int>& indices, CPlanarGraph* ptrGraph);
 
-	void SetVisitedNeighbors(const std::vector<int>& indices);
+    void SetVisitedNeighbors(const std::vector<int>& indices);
 
-	void DumpSolutionIntoXML();
+    void DumpSolutionIntoXML();
 
-	int RandomlyPickOneRoom(CRoomLayout& layout);
+    int RandomlyPickOneRoom(CRoomLayout& layout);
 
-	int RandomlyPickOneRoom(std::vector<int>& indices, std::vector<int> *weightedIndices = NULL );
+    int RandomlyPickOneRoom(std::vector<int>& indices, std::vector<int>* weightedIndices = NULL);
 
-	int RandomlyPickOneRoom(CRoomLayout& layout, std::vector<int>& indices, std::vector<int> *weightedIndices );
+    int RandomlyPickOneRoom(CRoomLayout& layout, std::vector<int>& indices, std::vector<int>* weightedIndices);
 
-	int RandomlyPickAnotherRoom(CRoomLayout& layout, int pickedIndex);
+    int RandomlyPickAnotherRoom(CRoomLayout& layout, int pickedIndex);
 
-	std::vector<int> GetConnectedIndices(CPlanarGraph* ptrGraph, int pickedIndex, bool flagVisitedOnly = true);
+    std::vector<int> GetConnectedIndices(CPlanarGraph* ptrGraph, int pickedIndex, bool flagVisitedOnly = true);
 
-	int RandomlyAdjustOneRoom(CRoomLayout& layout, CPlanarGraph* ptrGraph, std::vector<int>& indices, std::vector<int> *weightedIndices );
+    int RandomlyAdjustOneRoom(CRoomLayout& layout, CPlanarGraph* ptrGraph, std::vector<int>& indices, std::vector<int>* weightedIndices);
 
-	void RandomlyAdjustOneRoom01(CRoomLayout& layout, CPlanarGraph* ptrGraph, std::vector<int>& indices);
+    void RandomlyAdjustOneRoom01(CRoomLayout& layout, CPlanarGraph* ptrGraph, std::vector<int>& indices);
 
-	void RandomlyAdjustOneRoom02(CRoomLayout& layout, CPlanarGraph* ptrGraph, std::vector<int>& indices);
+    void RandomlyAdjustOneRoom02(CRoomLayout& layout, CPlanarGraph* ptrGraph, std::vector<int>& indices);
 
-	int RandomlyAdjustOneRoom03(CRoomLayout& layout, CPlanarGraph* ptrGraph, std::vector<int>& indices, std::vector<int> *weightedIndices );
+    int RandomlyAdjustOneRoom03(CRoomLayout& layout, CPlanarGraph* ptrGraph, std::vector<int>& indices, std::vector<int>* weightedIndices);
 
-	void SampleConfigSpaceForPickedRoom(CRoomLayout& layout, CPlanarGraph* ptrGraph, std::vector<int>& indices, int pickedRoomIndex);
+    void SampleConfigSpaceForPickedRoom(CRoomLayout& layout, CPlanarGraph* ptrGraph, std::vector<int>& indices, int pickedRoomIndex);
 
-	int RandomlyAdjustOneRoom04(CRoomLayout& layout, CPlanarGraph* ptrGraph, std::vector<int>& indices, std::vector<int> *weightedIndices );
+    int RandomlyAdjustOneRoom04(CRoomLayout& layout, CPlanarGraph* ptrGraph, std::vector<int>& indices, std::vector<int>* weightedIndices);
 
-	int GradientDescentOneRoom(CRoomLayout& layout, CPlanarGraph* ptrGraph, std::vector<int>& indices);
+    int GradientDescentOneRoom(CRoomLayout& layout, CPlanarGraph* ptrGraph, std::vector<int>& indices);
 
-	float GetLayoutEnergy(CRoomLayout& layout, CPlanarGraph* ptrGraph, float& collideArea, float& connectivity, int roomThatMoved = -1, bool doContact = false, std::vector<int> *indicesForContact = NULL );
-	
-	bool GetLayoutEnergyEarlyOut(CRoomLayout& layout, CPlanarGraph* ptrGraph, float& collideArea, float& connectivity, int roomThatMoved = -1, float *energyTmp = NULL, float energyCurrent = 0.0f );
+    float GetLayoutEnergy(CRoomLayout& layout, CPlanarGraph* ptrGraph, float& collideArea, float& connectivity, int roomThatMoved = -1, bool doContact = false, std::vector<int>* indicesForContact = NULL);
 
-	float CheckRoomConnectivity(CRoomLayout& layout, CPlanarGraph* ptrGraph, bool flagVisitedOnly = false, int roomThatMoved = -1 );
+    bool GetLayoutEnergyEarlyOut(CRoomLayout& layout, CPlanarGraph* ptrGraph, float& collideArea, float& connectivity, int roomThatMoved = -1, float* energyTmp = NULL, float energyCurrent = 0.0f);
 
-	float LayoutCollide(CRoomLayout& layout, CPlanarGraph* ptrGraph, bool flagVisitedOnly = false, int roomThatMoved = -1);
+    float CheckRoomConnectivity(CRoomLayout& layout, CPlanarGraph* ptrGraph, bool flagVisitedOnly = false, int roomThatMoved = -1);
 
-	float LayoutCollide(CRoomLayout& layout);
+    float LayoutCollide(CRoomLayout& layout, CPlanarGraph* ptrGraph, bool flagVisitedOnly = false, int roomThatMoved = -1);
 
-	float RoomCollides(CRoom& room1, CRoom& room2);
+    float LayoutCollide(CRoomLayout& layout);
 
-	float BoundingBoxCollidesArea(AABB2f& bb1, AABB2f& bb2); // not-in-use
+    float RoomCollides(CRoom& room1, CRoom& room2);
 
-	bool TestBoundingBoxCollides(AABB2f& bb1, AABB2f& bb2);
+    float BoundingBoxCollidesArea(AABB2f& bb1, AABB2f& bb2); // not-in-use
 
-	float LayoutContact(CRoomLayout& layout, CPlanarGraph* ptrGraph, bool flagVisitedOnly = false, bool flagNonOverlap = false, std::vector<int> *indices = NULL, int roomThatMoved = -1 );
+    bool TestBoundingBoxCollides(AABB2f& bb1, AABB2f& bb2);
 
-	v2f ComputeLabelPosition(int idx, CPlanarGraph* ptrGraph, float labelRad);
+    float LayoutContact(CRoomLayout& layout, CPlanarGraph* ptrGraph, bool flagVisitedOnly = false, bool flagNonOverlap = false, std::vector<int>* indices = NULL, int roomThatMoved = -1);
 
-	std::vector<int> m_sequence; // 1D chain of instantiated room templates
+    v2f ComputeLabelPosition(int idx, CPlanarGraph* ptrGraph, float labelRad);
 
-	CPlanarGraph* m_ptrGraph;
-	CRoomTemplates* m_ptrTemplates;
-	CRoomLayout m_layout;
+    std::vector<int> m_sequence; // 1D chain of instantiated room templates
 
-	int m_solutionCount;
-	std::vector<v2f> m_roomPositions;
-	std::vector< std::vector<int> > m_visitedNeighbors;
-	int m_pickIndexCount;
-	int m_bestSolCount;
+    CPlanarGraph* m_ptrGraph;
+    CRoomTemplates* m_ptrTemplates;
+    CRoomLayout m_layout;
 
-	bool m_flagVisitedNoNode;
+    int m_solutionCount;
+    std::vector<v2f> m_roomPositions;
+    std::vector<std::vector<int>> m_visitedNeighbors;
+    int m_pickIndexCount;
+    int m_bestSolCount;
 
-	int m_iterationCount;
-	int m_chainCount;
+    bool m_flagVisitedNoNode;
 
-	int m_backTrackCount;
-	int m_backTrackLevel;
+    int m_iterationCount;
+    int m_chainCount;
+
+    int m_backTrackCount;
+    int m_backTrackLevel;
 };
 
 #endif // LEVELSYNTH_H

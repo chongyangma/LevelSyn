@@ -14,25 +14,25 @@
 class CGraphFace
 {
 public:
-	CGraphFace() {}
+    CGraphFace() {}
 
-	CGraphFace(std::vector<int>& indices)
-	{
-		m_indices = indices;
-	}
+    CGraphFace(std::vector<int>& indices)
+    {
+        m_indices = indices;
+    }
 
-	std::vector<int>& GetIndices() { return m_indices; }
+    std::vector<int>& GetIndices() { return m_indices; }
 
-	void AddIndex(int idx) { m_indices.push_back(idx); }
+    void AddIndex(int idx) { m_indices.push_back(idx); }
 
-	void ClearIndices() { m_indices.clear(); }
+    void ClearIndices() { m_indices.clear(); }
 
-	int GetFaceSize() { return int(m_indices.size()); }
+    int GetFaceSize() { return int(m_indices.size()); }
 
-	bool IsEmpty() { return m_indices.empty(); }
+    bool IsEmpty() { return m_indices.empty(); }
 
 private:
-	std::vector<int> m_indices; // graph nodes that form a face
+    std::vector<int> m_indices; // graph nodes that form a face
 };
 
 #endif // GRAPHFACE_H

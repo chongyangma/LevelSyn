@@ -14,23 +14,23 @@
 class CGraphEdge
 {
 public:
-	CGraphEdge(int idx0, int idx1)
-	{
-		m_indices.resize(2);
-		m_indices[0] = idx0;
-		m_indices[1] = idx1;
-	}
+    CGraphEdge(int idx0, int idx1)
+    {
+        m_indices.resize(2);
+        m_indices[0] = idx0;
+        m_indices[1] = idx1;
+    }
 
-	std::vector<int>& GetIndices() { return m_indices; }
+    std::vector<int>& GetIndices() { return m_indices; }
 
-	int GetIdx0() const { return m_indices[0]; }
-	int GetIdx1() const { return m_indices[1]; }
+    int GetIdx0() const { return m_indices[0]; }
+    int GetIdx1() const { return m_indices[1]; }
 
-	void SetIdx0(int idx0) { m_indices[0] = idx0; }
-	void SetIdx1(int idx1) { m_indices[1] = idx1; }
+    void SetIdx0(int idx0) { m_indices[0] = idx0; }
+    void SetIdx1(int idx1) { m_indices[1] = idx1; }
 
 private:
-	std::vector<int> m_indices;
+    std::vector<int> m_indices;
 };
 
 #endif // GRAPHEDGE_H

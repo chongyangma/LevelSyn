@@ -14,31 +14,31 @@
 class CGraphChain
 {
 public:
-	CGraphChain() {}
+    CGraphChain() {}
 
-	CGraphChain(std::vector<int>& indices, bool flag)
-	{
-		m_indices = indices;
-		m_flagCyclic = flag;
-	}
+    CGraphChain(std::vector<int>& indices, bool flag)
+    {
+        m_indices = indices;
+        m_flagCyclic = flag;
+    }
 
-	std::vector<int>& GetIndices() { return m_indices; }
+    std::vector<int>& GetIndices() { return m_indices; }
 
-	void AddIndex(int idx) { m_indices.push_back(idx); }
+    void AddIndex(int idx) { m_indices.push_back(idx); }
 
-	void ClearIndices() { m_indices.clear(); }
+    void ClearIndices() { m_indices.clear(); }
 
-	int GetChainSize() { return int(m_indices.size()); }
+    int GetChainSize() { return int(m_indices.size()); }
 
-	bool IsEmpty() { return m_indices.empty(); }
+    bool IsEmpty() { return m_indices.empty(); }
 
-	bool GetFlagCyclic() { return m_flagCyclic; }
+    bool GetFlagCyclic() { return m_flagCyclic; }
 
-	void SetFlagCyclic(bool flag) { m_flagCyclic = flag; }
+    void SetFlagCyclic(bool flag) { m_flagCyclic = flag; }
 
 private:
-	std::vector<int> m_indices; // graph nodes that form a chain
-	bool m_flagCyclic;
+    std::vector<int> m_indices; // graph nodes that form a chain
+    bool m_flagCyclic;
 };
 
 #endif // GRAPHCHAIN_H
