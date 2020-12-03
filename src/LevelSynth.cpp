@@ -1052,12 +1052,12 @@ bool CLevelSynth::Solve1Dchain(std::vector<int>& indices, std::vector<int>* weig
                 flagAccept = true;
                 if (energyTmp < energyMin)
                 {
-                    layoutBest = layoutTmp;
                     energyMin = energyTmp;
 #ifndef PERFORMANCE_TEST
                     std::cout << "A new minimum energy: " << energyMin << std::endl;
 #endif
 #ifdef DUMP_INTERMEDIATE_OUTPUT
+                    layoutBest = layoutTmp;
                     graphBest = graphTmp;
                     for (int n = 0; n < graphBest.GetNumOfNodes(); n++)
                     {
@@ -1176,7 +1176,7 @@ bool CLevelSynth::Solve1DchainILS(std::vector<int>& indices, CurrentState& oldSt
     // Borrow the parameters from simulated annealing...
     const int n = CLevelConfig::m_saNumOfCycles;
     const int m = CLevelConfig::m_saNumOfTrials;
-    CRoomLayout layoutBest; // Current best result so far
+    // CRoomLayout layoutBest; // Current best result so far
     float collideArea = 0.f;
     float connectivity = 0.f;
     float energyMin = 1e10;
@@ -1240,7 +1240,7 @@ bool CLevelSynth::Solve1DchainILS(std::vector<int>& indices, CurrentState& oldSt
             {
                 if (energyTmp < energyMin)
                 {
-                    layoutBest = layoutTmp;
+                    // layoutBest = layoutTmp;
                     energyMin = energyTmp;
 #ifndef PERFORMANCE_TEST
                     std::cout << "A new minimum energy: " << energyMin << std::endl;
