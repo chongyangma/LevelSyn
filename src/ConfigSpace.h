@@ -44,9 +44,9 @@ public:
     // The configuration space to put room2 around room1...
     CConfigSpace(const CRoom& room1, const CRoom& room2);
 
-    CConfigSpace(std::vector<CConfigLine>& vecConfigLines);
+    CConfigSpace(const std::vector<CConfigLine>& vecConfigLines);
 
-    void AddConfigLine(CConfigLine& line) { m_vecConfigLine.push_back(line); }
+    void AddConfigLine(const CConfigLine& line) { m_vecConfigLine.push_back(line); }
 
     v2f RandomlySampleConfigSpace();
 
@@ -60,7 +60,7 @@ public:
 
     bool IsEmpty() { return m_vecConfigLine.empty(); }
 
-    void SetConfigLines(std::vector<CConfigLine>& vecConfigLine) { m_vecConfigLine = vecConfigLine; }
+    void SetConfigLines(const std::vector<CConfigLine>& vecConfigLine) { m_vecConfigLine = vecConfigLine; }
 
     std::vector<CConfigLine>& GetConfigLines() { return m_vecConfigLine; }
 

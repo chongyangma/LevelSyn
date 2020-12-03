@@ -143,9 +143,8 @@ CConfigSpace::CConfigSpace(const CRoom& room1, const CRoom& room2)
     SelfMerge();
 }
 
-CConfigSpace::CConfigSpace(std::vector<CConfigLine>& vecConfigLines)
+CConfigSpace::CConfigSpace(const std::vector<CConfigLine>& vecConfigLines) : m_vecConfigLine(vecConfigLines)
 {
-    m_vecConfigLine = vecConfigLines;
     SelfMerge();
 }
 

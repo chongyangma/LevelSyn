@@ -73,7 +73,7 @@ protected:
 
     virtual void UpdateOutputPrefix();
 
-    void DumpStringParam(FILE* file, const char* param, const std::string str);
+    void DumpStringParam(FILE* file, const char* param, const std::string& str);
 };
 
 #endif //LEVELCONFIG_H

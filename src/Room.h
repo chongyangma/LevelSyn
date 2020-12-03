@@ -106,21 +106,13 @@ public:
 
 private:
 	std::vector<v2f> m_vertices;
-
-	v2f m_centerShift;
-
+	v2f m_centerShift = v2f(0.f, 0.f);;
 	std::vector<RoomWall> m_walls;
-
-	v3f m_color;
-
+	v3f m_color = v3f(0.5f, 0.5f, 0.5f);
 	float m_energy;
-
 	int m_templateType;
-
 	bool m_flagFixed;
-
 	int m_boundaryType;
-
 	std::vector<bool> m_doorFlags;
 };
 

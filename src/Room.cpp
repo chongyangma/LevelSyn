@@ -4,8 +4,6 @@
 
 CRoom::CRoom()
 {
-    m_color = v3f(0.5f, 0.5f, 0.5f);
-    m_centerShift = v2f(0.f, 0.f);
     m_templateType = -1;
     m_flagFixed = false;
     m_boundaryType = 0;
