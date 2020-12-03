@@ -221,7 +221,6 @@ bool LineIntersection(float Ax, float Ay, float Bx, float By, float Cx, float Cy
         return false;
     }
     float t = (QPx * Sy - QPy * Sx) / rs;
-    float u = (QPx * Ry - QPy * Rx) / rs;
     Ix = Ax + t * Rx;
     Iy = Ay + t * Ry;
     return true;

@@ -934,7 +934,7 @@ bool CLevelSynth::Solve1Dchain(std::vector<int>& indices, std::vector<int>* weig
     layoutBest.SaveLayoutAsSVG(CLevelConfig::AddOutputPrefix(sprint("tmpBest_%03d.svg", m_bestSolCount)).c_str());
     m_bestSolCount++;
 #endif
-    m_pickIndexCount = 0;
+    int pickIndexCount = 0;
     int numFailures = 0;
     for (int i = 0; i < n; i++)
     {
@@ -1112,8 +1112,8 @@ bool CLevelSynth::Solve1Dchain(std::vector<int>& indices, std::vector<int>* weig
                 flagWasAccepted = true;
             }
 
-            m_pickIndexCount++;
-            m_pickIndexCount = m_pickIndexCount % int(indices.size());
+            pickIndexCount++;
+            pickIndexCount = pickIndexCount % int(indices.size());
         }
         if (flagWasAccepted == false)
         {
@@ -1181,7 +1181,7 @@ bool CLevelSynth::Solve1DchainILS(std::vector<int>& indices, CurrentState& oldSt
     float connectivity = 0.f;
     float energyMin = 1e10;
     float energyHistory = 1e10;
-    m_pickIndexCount = 0;
+    int pickIndexCount = 0;
     for (int i = 0; i < n; i++)
     {
         CRoomLayout layoutHistory = m_layout;
@@ -1250,8 +1250,8 @@ bool CLevelSynth::Solve1DchainILS(std::vector<int>& indices, CurrentState& oldSt
                 *ptrGraph = graphTmp;
                 energyCurrent = energyTmp;
             }
-            m_pickIndexCount++;
-            m_pickIndexCount = m_pickIndexCount % int(indices.size());
+            pickIndexCount++;
+            pickIndexCount = pickIndexCount % int(indices.size());
         }
         if (i == 0 || energyMin < energyHistory)
         {
@@ -1371,51 +1371,6 @@ int CLevelSynth::RandomlyPickOneRoom(CRoomLayout& layout, std::vector<int>& indi
     }
 }
 
-/*
-
-int CLevelSynth::RandomlyPickOneRoom(CRoomLayout& layout, std::vector<int>& indices, std::vector<int> *weightedIndices )
-{
-if ( CLevelConfig::m_flagEqualPickProb == true )
-{
-return RandomlyPickOneRoom(indices,weightedIndices);
-}
-if ( CLevelConfig::m_flagRandomPick == false )
-{
-return indices[m_pickIndexCount];
-}
-
-// Pick one room based on roulette...
-int chainLength = int(indices.size());
-std::vector<float> vecEnergySum(chainLength);
-float energySum = 0.f;
-for ( int i=0; i<chainLength; i++ )
-{
-vecEnergySum[i] = energySum;
-float energyTmp = layout.GetRoom(indices[i]).GetEnergy();
-if (weightedIndices)
-{
-for (int j = 0; j < weightedIndices->size(); j++)
-{
-if (indices[i] == (*weightedIndices)[j])
-{
-energyTmp *= 3.0;
-}
-}
-}
-energySum += energyTmp;
-}
-
-float r = rand() / float(RAND_MAX) * energySum;
-for ( int i=0; i<chainLength; i++ )
-{
-if ( r < vecEnergySum[i] )
-{
-return indices[i];
-}
-}
-return indices.back();
-}
-*/
 int CLevelSynth::RandomlyPickAnotherRoom(CRoomLayout& layout, int pickedIndex)
 {
     int numOfRooms = layout.GetNumOfRooms();

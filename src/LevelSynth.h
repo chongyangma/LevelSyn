@@ -181,7 +181,6 @@ private:
     int m_solutionCount;
     std::vector<v2f> m_roomPositions;
     std::vector<std::vector<int>> m_visitedNeighbors;
-    int m_pickIndexCount = 0;
     int m_bestSolCount = 0;
 
     bool m_flagVisitedNoNode;
