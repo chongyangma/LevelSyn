@@ -16,13 +16,15 @@ This repository contains the source code and example data of the following publi
 > [Slides](http://chongyangma.com/publications/gl/2014_gl_slides.pdf),
 > [BibTex](http://chongyangma.com/publications/gl/2014_gl_bib.txt)
 
-## Requirements ##
+Requirements
+------------
 
 The code is cross-platform and has been tested under Windows (MSVC), Linux and Mac OS X. Compiling from scratch requires the installation of [CMake](https://cmake.org/) and [Boost C++ Libraries](http://www.boost.org/). Additional third-party dependencies (included in this repo as submodules) are:
 *   [Clipper 6.4.2](https://github.com/skyrpex/clipper) for polygon intersection computation
 *   [TinyXML-2](https://github.com/leethomason/tinyxml2) for loading/saving xml files
 
-## Usage ##
+Usage
+-----
 
 Launching the compiled application from command line without any argument will print the usage information (MSVC version):
 
@@ -30,6 +32,7 @@ Launching the compiled application from command line without any argument will p
 levels.exe graph.xml templates.xml config.txt [target_solution_number]
 ```
 
-## Contact information ##
+Contact information
+-------------------
 
 Questions? Bug reports? Please send email to Chongyang Ma chongyangm@gmail.com .
