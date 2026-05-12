@@ -43,7 +43,7 @@ public:
 	void SetIdx2(int idx2) { m_idx2 = idx2; }
 
 	void SetDoorFlag(bool flag) { m_doorFlag = flag; }
-	bool GetDoorFlag() { return m_doorFlag; }
+	bool GetDoorFlag() const { return m_doorFlag; }
 
 private:
 	int m_idx1;
