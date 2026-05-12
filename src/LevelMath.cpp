@@ -52,9 +52,10 @@ float PointToLineSqDistance(const v2f& pt, const v2f& p1, const v2f& p2)
 float RoomPerimeter(const CRoom& room1)
 {
     float contactArea = 0.f;
-    for (int i = 0; i < room1.GetNumOfEdges(); i++)
+    const int numEdges = room1.GetNumOfEdges();
+    for (int i = 0; i < numEdges; ++i)
     {
-        CRoomEdge edge1 = room1.GetEdge(i);
+        const CRoomEdge edge1 = room1.GetEdge(i);
         contactArea += edge1.GetLength();
     }
 
@@ -64,18 +65,23 @@ float RoomPerimeter(const CRoom& room1)
 float RoomContact(const CRoom& room1, const CRoom& room2)
 {
     float contactArea = 0.f;
-    for (int i = 0; i < room1.GetNumOfEdges(); i++)
+    const int numEdges1 = room1.GetNumOfEdges();
+    const int numEdges2 = room2.GetNumOfEdges();
+    for (int i = 0; i < numEdges1; ++i)
     {
-        CRoomEdge edge1 = room1.GetEdge(i);
-        for (int j = 0; j < room2.GetNumOfEdges(); j++)
+        const CRoomEdge edge1 = room1.GetEdge(i);
+        if (!edge1.GetDoorFlag())
         {
-            CRoomEdge edge2 = room2.GetEdge(j);
-            if (edge1.GetDoorFlag() == false || edge2.GetDoorFlag() == false)
+            continue;
+        }
+        for (int j = 0; j < numEdges2; ++j)
+        {
+            const CRoomEdge edge2 = room2.GetEdge(j);
+            if (!edge2.GetDoorFlag())
             {
                 continue;
             }
-            float contactAreaTmp = EdgeContact(edge1, edge2);
-            contactArea += contactAreaTmp;
+            contactArea += EdgeContact(edge1, edge2);
         }
     }
 
@@ -85,17 +91,23 @@ float RoomContact(const CRoom& room1, const CRoom& room2)
 float RoomContact(const CRoom& room1, const CRoom& room2, int& edgeIdx1, int& edgeIdx2)
 {
     float contactAreaMax = 0.f;
-    for (int i = 0; i < room1.GetNumOfEdges(); i++)
+    const int numEdges1 = room1.GetNumOfEdges();
+    const int numEdges2 = room2.GetNumOfEdges();
+    for (int i = 0; i < numEdges1; ++i)
     {
-        CRoomEdge edge1 = room1.GetEdge(i);
-        for (int j = 0; j < room2.GetNumOfEdges(); j++)
+        const CRoomEdge edge1 = room1.GetEdge(i);
+        if (!edge1.GetDoorFlag())
         {
-            CRoomEdge edge2 = room2.GetEdge(j);
-            if (edge1.GetDoorFlag() == false || edge2.GetDoorFlag() == false)
+            continue;
+        }
+        for (int j = 0; j < numEdges2; ++j)
+        {
+            const CRoomEdge edge2 = room2.GetEdge(j);
+            if (!edge2.GetDoorFlag())
             {
                 continue;
             }
-            float contactAreaTmp = EdgeContact(edge1, edge2);
+            const float contactAreaTmp = EdgeContact(edge1, edge2);
             if (contactAreaTmp > contactAreaMax)
             {
                 contactAreaMax = contactAreaTmp;
@@ -155,13 +167,15 @@ float EdgeContact(const CLineBase& line1, const CLineBase& line2)
 float RoomDistance(const CRoom& room1, const CRoom& room2)
 {
     float d = 1e10;
-    for (int i = 0; i < room1.GetNumOfVertices(); i++)
+    const int numVertices = room1.GetNumOfVertices();
+    const int numEdges = room2.GetNumOfEdges();
+    for (int i = 0; i < numVertices; ++i)
     {
-        v2f pt = room1.GetVertex(i);
-        for (int j = 0; j < room2.GetNumOfEdges(); j++)
+        const v2f pt = room1.GetVertex(i);
+        for (int j = 0; j < numEdges; ++j)
         {
-            CRoomEdge edge = room2.GetEdge(j);
-            float dTmp = PointToSegmentSqDistance(pt, edge);
+            const CRoomEdge edge = room2.GetEdge(j);
+            const float dTmp = PointToSegmentSqDistance(pt, edge);
             d = min(d, dTmp);
         }
     }
